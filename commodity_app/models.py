@@ -32,20 +32,20 @@ class Commodity(models.Model):
     pic = models.ImageField()
     price = models.IntegerField()
     number = models.IntegerField()
-    desc = models.CharField()
+    desc = models.CharField(max_length=1024)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Favorites(models.Model):
-    buyer_id = models.OneToOneField('Buyer', to_field='buyer_id', on_delete=models.CASCADE)
-    commodity_id = models.OneToOneField('Commodity', to_field='commodity_id', on_delete=models.CASCADE)
+    buyer_id = models.ForeignKey('account_app.Buyer', to_field='buyer_id', on_delete=models.CASCADE)
+    commodity_id = models.ForeignKey('Commodity', to_field='commodity_id', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
 class Order(models.Model):
     order_id = models.AutoField(primary_key=True, auto_created=10000000)
-    buyer_id = models.OneToOneField('Buyer', to_field='buyer_id', on_delete=models.CASCADE)
-    commodity_id = models.OneToOneField('Commodity', to_field='commodity_id', on_delete=models.CASCADE)
+    buyer_id = models.ForeignKey('account_app.Buyer', to_field='buyer_id', on_delete=models.CASCADE)
+    commodity_id = models.ForeignKey('Commodity', to_field='commodity_id', on_delete=models.CASCADE)
     STATUS_CHOICE = (
         (0, u'待付款'),
         (1, u'待发货'),
@@ -58,8 +58,8 @@ class Order(models.Model):
 
 
 class Comment(models.Model):
-    buyer_id = models.OneToOneField('Buyer', to_field='buyer_id', on_delete=models.CASCADE)
-    order_id = models.OneToOneField('Order', to_field='order_id', on_delete=models.CASCADE)
+    buyer_id = models.ForeignKey('account_app.Buyer', to_field='buyer_id', on_delete=models.CASCADE)
+    order_id = models.ForeignKey('Order', to_field='order_id', on_delete=models.CASCADE)
     create_at = models.DateTimeField(auto_now_add=True)
 
 

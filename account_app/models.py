@@ -30,7 +30,7 @@ class MyUser(AbstractBaseUser):
     username = models.CharField(
         verbose_name='username',
         max_length=255,
-        primary_key=True,
+        unique=True,
     )
     email = models.EmailField(
         verbose_name='email',
