@@ -37,8 +37,8 @@
         <div class="product-details">
             <div class="wrap">
                 <ul class="product-head">
-                    <li><a href="#">Home</a> <span>::</span></li>
-                    <li class="active-page"><a href="#">Product Page</a></li>
+                    <li><a href="#">主页</a> <span>::</span></li>
+                    <li class="active-page"><a href="#">商品详情</a></li>
                     <div class="clear"></div>
                 </ul>
                 <!----details-product-slider--->
@@ -104,20 +104,16 @@
                     </div>
                     <div class="details-left-info">
                         <div class="details-right-head">
-                            <h1>Product Name Goes Here</h1>
+                            <h1>{{ commodity.name }}</h1>
                             <ul class="pro-rate">
                                 <li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
                                 <li><a href="#">0 Review(s) Add Review</a></li>
                             </ul>
-                            <p class="product-detail-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis
-                                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <p class="product-detail-info">{{ commodity.desc }}</p>
                             <a class="learn-more" href="#"><h3>MORE DETAILS</h3></a>
                             <div class="product-more-details">
                                 <ul class="price-avl">
-                                    <li class="price"><span>$153.39</span><label>$145.72</label></li>
+                                    <li class="price"><span>${{ commodity.price }}</span><label>${{ commodity.price }}</label></li>
                                     <li class="stock"><i>In stock</i></li>
                                     <div class="clear"></div>
                                 </ul>
@@ -206,15 +202,7 @@
                         <div class="resp-tabs-container vertical-tabs">
                             <div>
                                 <h3> Details</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna,
-                                    euismod ut
-                                    ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales
-                                    scelerisque commodo. Nam porta cursus lectus. Proin nunc erat, gravida a facilisis
-                                    quis,
-                                    ornare id lectus. Proin consectetur nibh quis urna gravida mollis.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna,
-                                    euismod ut
-                                    ornare non, volutpat vel tortor</p>
+                                <p>{{ commodity.desc }}</p>
                             </div>
                             <div>
                                 <h3>Product Tags</h3>
