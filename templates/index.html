@@ -3,6 +3,7 @@
 {% block title %}首页{% endblock %}
 
 {% block head %}
+    {% include 'head.html' %}
     <!---slider---->
     <link rel="stylesheet" href="{% static "css/slippry.css" %}">
     <script src="" type="text/javascript"></script>
@@ -43,6 +44,7 @@
 
 
 {% block body %}
+    {% include 'bar.html' %}
     <!---start-wrap---->
     <!----start-image-slider---->
     <div class="img-slider">
@@ -50,7 +52,7 @@
             <ul id="jquery-demo">
                 <li>
                     <a href="#slide1">
-                        <img src="images/slide-1.jpg" alt=""/>
+                        <img src="staitc/images/slide-1.jpg" alt=""/>
                     </a>
                     <div class="slider-detils">
                         <h3>MENS FOOT BALL <label>BOOTS</label></h3>
@@ -60,7 +62,7 @@
                 </li>
                 <li>
                     <a href="#slide2">
-                        <img src="images/slide-4.jpg" alt=""/>
+                        <img src="staitc/images/slide-4.jpg" alt=""/>
                     </a>
                     <div class="slider-detils">
                         <h3>MENS FOOT BALL <label>BOOTS</label></h3>
@@ -70,7 +72,7 @@
                 </li>
                 <li>
                     <a href="#slide3">
-                        <img src="images/slide-1.jpg" alt=""/>
+                        <img src="staitc/images/slide-1.jpg" alt=""/>
                     </a>
                     <div class="slider-detils">
                         <h3>MENS FOOT BALL <label>BOOTS</label></h3>
@@ -132,13 +134,13 @@
                     <h4>Boys Football:</h4>
                     <div class="content-left-bottom-grids">
                         <div class="content-left-bottom-grid1">
-                            <img src="images/foot-ball.jpg" title="football"/>
+                            <img src="staitc/images/foot-ball.jpg" title="football"/>
                             <h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
                             <span> Football</span>
                             <label>&#163; 375</label>
                         </div>
                         <div class="content-left-bottom-grid1">
-                            <img src="images/jarse.jpg" title="jarse"/>
+                            <img src="staitc/images/jarse.jpg" title="jarse"/>
                             <h5><a href="details.html">Nike Strike PL Hi-Vis</a></h5>
                             <span> Football</span>
                             <label>&#163; 375</label>
@@ -406,6 +408,8 @@
 
     <!--- //End-content---->
     <!---//End-wrap---->
+    {% include 'footer.html' %}
 {% endblock %}
+
 
 

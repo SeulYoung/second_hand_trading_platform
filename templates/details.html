@@ -3,6 +3,7 @@
 {% block title %}商品详情{% endblock %}
 
 {% block head %}
+    {% include 'head.html' %}
     <!-- Owl Carousel Assets -->
     <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet">
     <script src="{% static "js/jquery-1.9.1.min.js" %}"></script>
@@ -28,6 +29,7 @@
 {% endblock %}
 
 {% block body %}
+    {% include 'bar.html' %}
     <!---start-wrap---->
     <!--- start-content---->
     <div class="content details-page">
@@ -423,4 +425,5 @@
 
     <!--- //End-content---->
     <!---//End-wrap---->
+    {% include 'footer.html' %}
 {% endblock %}

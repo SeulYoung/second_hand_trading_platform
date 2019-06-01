@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block title %}登录{% endblock %}
+{% block head %}{% include 'head.html' %}{% endblock %}
 
 {% block body %}
+    {% include 'bar.html' %}
     <!---start-wrap---->
     <!--- start-content---->
     <div class="content login-box">
@@ -14,7 +16,7 @@
                     <p>By creating an account with our store, you will be able to move through the checkout process
                         faster,
                         store multiple shipping addresses, view and track your orders in your account and more.</p>
-                    <a class="acount-btn" href="register.html">Creat an Account</a>
+                    <a class="acount-btn" href="/registration">Creat an Account</a>
                 </div>
                 <div class="login-right">
                     <h3>REGISTERED CUSTOMERS</h3>
@@ -39,6 +41,8 @@
 
     <!--- //End-content---->
     <!---//End-wrap---->
+    {% include 'footer.html' %}
 {% endblock %}
+
 
 
