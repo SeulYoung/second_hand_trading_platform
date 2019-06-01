@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% if info == "repeat" %}Repeat{% else %}404{% endif %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'error/css/style.css' %}">
+</head>
+
+<body bgcolor="#494949">
+
+{% if info == "repeat" %}
+    <div class="repeat_error"></div>
+{% else %}
+    <div class="head404"></div>
+{% endif %}
+
+<div class="txtbg404">
+    <div class="txtbox">
+        {% if info == "repeat" %}
+            <p>Sorry, you are already in the chat room!</p>
+        {% else %}
+            <p>Sorry, the page you requested does not exist!</p>
+        {% endif %}
+        <p class="paddingbox">Please click on the link below to continue browsing the web page</p>
+        <p>》<a style="cursor:pointer" onclick="history.back()">Go back to the previous page</a></p>
+        <p>》<a href="{% url 'index' %}">Return to the homepage</a></p>
+    </div>
+</div>
+</body>
+</html>

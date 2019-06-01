@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block title %}联系{% endblock %}
+{% block head %}{% include 'head.html' %}{% endblock %}
 
 {% block body %}
+    {% include 'bar.html' %}
 <!---start-wrap---->
     <!--- start-content---->
     <div class="content contact-main">
@@ -83,6 +85,8 @@
 
     <!--- //End-content---->
     <!---//End-wrap---->
+    {% include 'footer.html' %}
 {% endblock %}
+
 
 
