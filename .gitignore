@@ -116,6 +116,5 @@ dmypy.json
 # PyCharm
 .idea/
 
-
 # django
 migrations/
