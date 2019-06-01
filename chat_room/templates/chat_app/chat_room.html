@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat Room {{ room_name }}{% endblock %}
+
+{% block head %}
+    {% include 'bar.html' %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'group_members/css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'group_members/css/demo.css' %}">
+    <link href="{% static 'group_members/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'group_members/css/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'chat_app/css/reset.min.css' %}">
+    <link rel="stylesheet" href="{% static 'chat_app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'error/css/myAlert.css' %}">
+
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <link href="{% static 'chat_app/css/emoji.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block body %}
+
+    <div class="room_wrapper">
+        <div class="room_container">
+            <div class="left">
+                <div class="top">
+                    <input type="text" id="other_room" placeholder="Search"/>
+                    <a onclick="GotoChatRoom()" class="search"></a>
+                </div>
+                <ul class="people">
+                    <li class="person" data-chat="person1">
+                        <img class="roomLogo" src="{% static 'chat_app/img/thomas.jpg' %}" style="margin-top: 0px;"
+                             alt=""/>
+                        <span class="name" id="name">{{ room_name }}</span>
+                        <span class="time" id="time"></span>
+                        <span class="preview" id="preview"></span>
+                    </li>
+                </ul>
+
+                <div class="heap_topics">
+                    <span>Heap Topics: </span>
+                    <a onclick="refresh()"><img class="refresh" src="{% static "chat_app/img/refresh.png" %}"></a>
+                </div>
+
+                <ul class="people" id="hot_room"></ul>
+            </div>
+
+            <div class="right">
+                <div class="top">
+                    <span style="flex: 1;"><span class="name">Chat Room: {{ room_name }}</span></span>
+                    <div id="sideMenu">
+                        <span class="fa fa-navicon" id="sideMenuClosed" style="font-size: 19px; cursor:pointer"></span>
+                    </div>
+                </div>
+                <div id="sideMenuContainer">
+                    <h2>Group Chat Member</h2>
+                    <div class="user_list" id="user_{{ user.username }}">
+                        <img class="user_portrait" src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="fa" id="myname">{{ user.username }}</span>
+                    </div>
+                    {% if members %}
+                        {% for key in members %}
+                            <div class="user_list" id="user_{{ key.user }}">
+                                <img class="user_portrait" src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                                <span class="fa">{{ key.user }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="chat" data-chat="person1">
+                    <div class="chat_box" id="chat_box">
+                        <div class="conversation-start">
+                            <span id="now_time"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="write">
+                    {#                <a class="write-link smiley" id="smiley"></a>#}
+                    <input class="write_input" id="chat-message-input" type="text" data-emojiable="true"/>
+                    <a id="chat-message-submit" class="write-link send"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'chat_app/js/chat_room.js' %}"></script>
+    <script type="text/javascript" src="{% static 'chat_app/js/websocket.js' %}"></script>
+    <script type="text/javascript" src="{% static 'error/js/myAlert.js' %}"></script>
+
+    <script src='{% static 'group_members/js/velocity.min.js' %}'></script>
+    <script src='{% static 'group_members/js/sideToggleExtended.js' %}'></script>
+
+    <script src="{% static 'chat_app/js/config.js' %}"></script>
+    <script src="{% static 'chat_app/js/util.js' %}"></script>
+    <script src="{% static 'chat_app/js/jquery.emojiarea.js' %}"></script>
+    <script src="{% static 'chat_app/js/emoji-picker.js' %}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sideMenu').sideToggle({
+                moving: '#sideMenuContainer',
+                direction: 'top',
+                opacity: 'opacity',
+            });
+
+            let t = new Date();
+            let year = t.getFullYear();
+            let month = t.getMonth() + 1;
+            let day = t.getDate();
+            let week = t.getDay();
+            let arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let hour = t.getHours();
+            let minute = t.getMinutes();
+
+            document.getElementById("now_time").innerHTML = year + "/" + month + "/" + day + " " + arr[week] + " " + hour +
+                ((minute < 10) ? ":0" : ":") + minute;
+            document.getElementById("time").innerHTML = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
+        });
+    </script>
+
+    <script>
+        $(function () {
+            // Initializes and creates emoji set from sprite sheet
+            window.emojiPicker = new EmojiPicker({
+                emojiable_selector: '[data-emojiable=true]',
+                assetsPath: '/static/chat_app/img/emoji',
+                popupButtonClasses: 'fa fa-smile-o'
+            });
+            // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+            // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+            // It can be called as many times as necessary; previously converted input fields will not be converted again
+            window.emojiPicker.discover();
+        });
+    </script>
+
+{% endblock %}

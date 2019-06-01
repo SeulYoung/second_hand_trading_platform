@@ -3,6 +3,7 @@
 {% block title %}首页{% endblock %}
 
 {% block head %}
+    {% include 'head.html' %}
     <!---slider---->
     <link rel="stylesheet" href="{% static "css/slippry.css" %}">
     <script src="" type="text/javascript"></script>
@@ -43,6 +44,7 @@
 
 
 {% block body %}
+    {% include 'bar.html' %}
     <!---start-wrap---->
     <!----start-image-slider---->
     <div class="img-slider">
@@ -406,6 +408,8 @@
 
     <!--- //End-content---->
     <!---//End-wrap---->
+    {% include 'footer.html' %}
 {% endblock %}
+
 
 
