@@ -58,7 +58,7 @@ def registration(request):
         if info is not None:
             return render(request, "register.html", {'errMsg': '该用户名已存在'})
 
-        MyUser.objects.create_user(email=email, username=username, password=password)
+        MyUser.objects.create_user(email=email, username=username, password=password, sex=gender, phone=phone)
         Buyer.objects.create(cardNum=cardNum, nickName=nickName)
         return HttpResponseRedirect('/login/')
     return render(request, 'register.html')
