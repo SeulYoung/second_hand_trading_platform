@@ -4,9 +4,10 @@
 
 {% block head %}
     <!---slider---->
-    <link rel="stylesheet" href="css/slippry.css">
-    <script src="js/jquery-ui.js" type="text/javascript"></script>
-    <script src="js/scripts-f0e4e0c2.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="static/css/slippry.css">
+    <script src="" type="text/javascript"></script>
+    <script src="{% static "js/jquery-ui.js" %}" type="text/javascript"></script>
+    <script src="{% static "js/scripts-f0e4e0c2.js" %}" type="text/javascript"></script>
     <script>
         jQuery('#jquery-demo').slippry({
             // general elements & wrapper
@@ -19,8 +20,8 @@
         });
     </script>
     <!----start-pricerage-seletion---->
-    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui.css" %}">
     <script type='text/javascript'>//<![CDATA[
     $(window).load(function () {
         $("#slider-range").slider({
@@ -148,8 +149,8 @@
             <div class="content-right">
                 <div class="product-grids">
                     <!--- start-rate---->
-                    <script src="js/jstarbox.js"></script>
-                    <link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8"/>
+                    <script src="{% static "js/jstarbox.js" %}"></script>
+                    <link rel="stylesheet" href="{% static "css/jstarbox.css" %}" type="text/css" media="screen" charset="utf-8"/>
                     <script type="text/javascript">
                         jQuery(function () {
                             jQuery('.starbox').each(function () {
@@ -188,7 +189,7 @@
                             </div>
                         </div>
                         <div class="product-pic">
-                            <a href="#"><img src="images/product2.jpg" title="product-name"/></a>
+                            <a href="#"><img src="{% static "images/product2.jpg" %}" title="product-name"/></a>
                             <p>
                                 <a href="#">
                                     <small>Nike</small>
@@ -225,7 +226,7 @@
                             </div>
                         </div>
                         <div class="product-pic">
-                            <a href="#"><img src="images/product1.jpg" title="product-name"/></a>
+                            <a href="#"><img src="static/images/product1.jpg" title="product-name"/></a>
                             <p>
                                 <a href="#">
                                     <small>Nike</small>
@@ -262,7 +263,7 @@
                             </div>
                         </div>
                         <div class="product-pic">
-                            <a href="#"><img src="images/product3.jpg" title="product-name"/></a>
+                            <a href="#"><img src="static/images/product3.jpg" title="product-name"/></a>
                             <p>
                                 <a href="#">
                                     <small>Nike</small>
@@ -299,7 +300,7 @@
                             </div>
                         </div>
                         <div class="product-pic">
-                            <a href="#"><img src="images/product4.jpg" title="product-name"/></a>
+                            <a href="#"><img src="static/images/product4.jpg" title="product-name"/></a>
                             <p>
                                 <a href="#">
                                     <small>Nike</small>
@@ -336,7 +337,7 @@
                             </div>
                         </div>
                         <div class="product-pic">
-                            <a href="#"><img src="images/product5.jpg" title="product-name"/></a>
+                            <a href="#"><img src="static/images/product5.jpg" title="product-name"/></a>
                             <p>
                                 <a href="#">
                                     <small>Nike</small>
@@ -373,7 +374,7 @@
                             </div>
                         </div>
                         <div class="product-pic">
-                            <a href="#"><img src="images/product6.jpg" title="product-name"/></a>
+                            <a href="#"><img src="static/images/product6.jpg" title="product-name"/></a>
                             <p>
                                 <a href="#">
                                     <small>Nike</small>
