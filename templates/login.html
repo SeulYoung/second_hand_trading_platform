@@ -8,28 +8,30 @@
     <div class="content login-box">
         <div class="login-main">
             <div class="wrap">
-                <h1>LOGIN OR CREATE AN ACCOUNT</h1>
+                <h1>登录或创建一个新账户</h1>
                 <div class="login-left">
-                    <h3>NEW CUSTOMERS</h3>
-                    <p>By creating an account with our store, you will be able to move through the checkout process
-                        faster,
-                        store multiple shipping addresses, view and track your orders in your account and more.</p>
-                    <a class="acount-btn" href="/registration">Creat an Account</a>
+                    <h3>从来没有使用过？</h3>
+                    <p>注册您的账户，方便您更好地使用二手交易平台，找到您想要购买的商品</p>
+                    <p>您也可以注册卖家账号，在平台上分享和出售您不需要但仍有价值的商品</p>
+                    <a class="acount-btn" href="/registration">注册一个新账号</a>
                 </div>
                 <div class="login-right">
-                    <h3>REGISTERED CUSTOMERS</h3>
-                    <p>If you have an account with us, please log in.</p>
-                    <form>
+                    <h3>已经拥有平台账号</h3>
+                    <p>请您登陆平台愉快地使用吧！</p>
+                    <form action="" method="post">
                         <div>
-                            <span>Email Address<label>*</label></span>
-                            <input type="text">
+                            <span>邮箱/用户名<label>*</label></span>
+                            <input type="text" name="username" id="username" placeholder="请输入用户名或邮箱" required/>
                         </div>
                         <div>
-                            <span>Password<label>*</label></span>
-                            <input type="text">
+                            <span>密码<label>*</label></span>
+                            <input type="password" name="password" id="password" placeholder="请输入密码" required/>
                         </div>
-                        <a class="forgot" href="#">Forgot Your Password?</a>
-                        <input type="submit" value="Login"/>
+                        <div>
+                            <span id="errorMsg">{{ errorMsg }}</span>
+                        </div>
+                        <a class="forgot" href="#">忘记了您的账户密码？</a>
+                        <input type="submit" value="登陆"/>
                     </form>
                 </div>
                 <div class="clear"></div>
