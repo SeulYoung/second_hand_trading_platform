@@ -10,46 +10,64 @@
     <div class="content login-box">
         <div class="login-main">
             <div class="wrap">
-                <h1>CREATE AN ACCOUNT</h1>
+                <h1>创建您的新账户</h1>
                 <div class="register-grids">
-                    <form>
+                    <form action="" method="post">
                         <div class="register-top-grid">
-                            <h3>PERSONAL INFORMATION</h3>
+                            <h3>个人基本信息</h3>
                             <div>
-                                <span>First Name<label>*</label></span>
-                                <input type="text">
+                                <span>用户名(登录用账号)<label>*</label></span>
+                                <input type="text" name="username" id="username" placeholder="请输入您的用户名" required/>
                             </div>
                             <div>
-                                <span>Last Name<label>*</label></span>
-                                <input type="text">
+                                <span>邮箱地址<label>*</label></span>
+                                <input type="email" name="email" id="email" placeholder="请输入您的邮箱" required/>
                             </div>
                             <div>
-                                <span>Email Address<label>*</label></span>
-                                <input type="text">
+                                <span>联系电话</span>
+                                <input type="text" name="phone" id="phone" placeholder="请输入您的联系电话"/>
+                            </div>
+                            <div>
+                                <span>性别<label>*</label></span>
+                                <select id="gender" name="gender" required>
+                                    <option value="" disabled selected style="display: none">选择您的性别</option>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span>银行卡号</span>
+                                <input type="text" name="cardNum" id="cardNum" placeholder="请输入您的银行卡号"/>
+                            </div>
+                            <div>
+                                <span>昵称</span>
+                                <input type="text" name="nickName" id="nickName" placeholder="请输入您的昵称"/>
                             </div>
                             <div class="clear"></div>
                             <a class="news-letter" href="#">
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign
-                                    Up
-                                    for Newsletter</label>
+                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>同意
+                                    本平台用户使用协议</label>
                             </a>
                             <div class="clear"></div>
                         </div>
                         <div class="clear"></div>
                         <div class="register-bottom-grid">
-                            <h3>LOGIN INFORMATION</h3>
+                            <h3>账户信息</h3>
                             <div>
-                                <span>Password<label>*</label></span>
-                                <input type="text">
+                                <span>输入密码<label>*</label></span>
+                                <input type="password" id="password" name="password" placeholder="请输入密码（不少于6位）" required/>
                             </div>
                             <div>
-                                <span>Confirm Password<label>*</label></span>
-                                <input type="text">
+                                <span>确认密码<label>*</label></span>
+                                <input type="password" id="repassword" name="repassword" placeholder="请再次输入密码" required/>
+                            </div>
+                            <div>
+                                <span id="errorMsg">{{ errorMsg }}</span>
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="clear"></div>
-                        <input type="submit" value="submit"/>
+                        <input type="submit" value="点击注册"/>
                     </form>
                 </div>
             </div>
