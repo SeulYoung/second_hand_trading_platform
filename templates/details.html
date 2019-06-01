@@ -5,13 +5,12 @@
 {% block head %}
     <!-- Owl Carousel Assets -->
     <link href="{% static "css/owl.carousel.css" %}" rel="stylesheet">
-    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script src="{% static "js/jquery-1.9.1.min.js" %}"></script>
     <!-- Owl Carousel Assets -->
     <!-- Prettify -->
     <script src="{% static "js/owl.carousel.js" %}"></script>
     <script>
         $(document).ready(function () {
-
             $("#owl-demo").owlCarousel({
                 items: 3,
                 lazyLoad: true,
@@ -21,7 +20,7 @@
                 rewindNav: false,
                 scrollPerPage: false,
                 pagination: false,
-                paginationNumbers: false,
+                paginationNumbers: false
             });
 
         });
@@ -29,11 +28,8 @@
     <!-- //Owl Carousel Assets -->
 {% endblock %}
 
-
-
-
 {% block body %}
-   <!---start-wrap---->
+    <!---start-wrap---->
     <!--- start-content---->
     <div class="content details-page">
         <!---start-product-details--->
@@ -75,8 +71,10 @@
                         <ul id="etalage">
                             <li>
                                 <a href="optionallink.html">
-                                    <img class="etalage_thumb_image" src="/static/images/product-slide/image1_thumb.jpg"/>
-                                    <img class="etalage_source_image" src="/static/images/product-slide/image1_large.jpg"/>
+                                    <img class="etalage_thumb_image"
+                                         src="/static/images/product-slide/image1_thumb.jpg"/>
+                                    <img class="etalage_source_image"
+                                         src="/static/images/product-slide/image1_large.jpg"/>
                                 </a>
                             </li>
                             <li>
@@ -274,7 +272,8 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
-                                            <a href="#"><img src="/static/images/product1.jpg" title="product-name"/></a>
+                                            <a href="#"><img src="/static/images/product1.jpg"
+                                                             title="product-name"/></a>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -301,7 +300,8 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
-                                            <a href="#"><img src="/static/images/product2.jpg" title="product-name"/></a>
+                                            <a href="#"><img src="/static/images/product2.jpg"
+                                                             title="product-name"/></a>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -328,7 +328,8 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
-                                            <a href="#"><img src="/static/images/product3.jpg" title="product-name"/></a>
+                                            <a href="#"><img src="/static/images/product3.jpg"
+                                                             title="product-name"/></a>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -355,7 +356,8 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
-                                            <a href="#"><img src="/static/images/product4.jpg" title="product-name"/></a>
+                                            <a href="#"><img src="/static/images/product4.jpg"
+                                                             title="product-name"/></a>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -382,7 +384,8 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
-                                            <a href="#"><img src="/static/images/product5.jpg" title="product-name"/></a>
+                                            <a href="#"><img src="/static/images/product5.jpg"
+                                                             title="product-name"/></a>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>

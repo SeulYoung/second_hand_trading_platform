@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Default title{% endblock %}</title>
+    <title>
+        {% block title %}Default title{% endblock %}
+    </title>
 
     <link href="{% static "css/style.css" %}" rel='stylesheet' type='text/css'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,12 +47,14 @@
     </script>
     <!---//move-top-top---->
 
-    {% block head %}{% endblock %}
+    {% block head %}Default head{% endblock %}
 </head>
 
 <body>
 {% include 'bar.html' %}
-{% block body %}{% endblock %}
+
+{% block body %}Default bofy{% endblock %}
+
 {% include 'footer.html' %}
 </body>
 
