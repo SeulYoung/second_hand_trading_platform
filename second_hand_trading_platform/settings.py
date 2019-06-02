@@ -53,13 +53,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'second_hand_trading_platform.urls'
+# Channels
+ASGI_APPLICATION = 'second_hand_trading_platform.routing.application'
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('localhost', 6379)],
             # "hosts": [('122.152.234.49', 6379)],
-            # "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('127.0.0.1', 6379)],
         },
     },
 }

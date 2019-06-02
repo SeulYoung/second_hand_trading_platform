@@ -1,22 +1,23 @@
 // let roomName = document.getElementById("name").innerHTML;
 let roomName = "yyy";
 // var chatSocket = new WebSocket('ws://' + window.location.host);
-var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + roomName + '/');
+// var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + roomName + '/');
+var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/yyy/');
 
 chatSocket.onmessage = function (e) {
     let data = JSON.parse(e.data);
     console.log(data);
 
-    let type = data['type'];
-    let user = data['user'];
+    // let type = data['type'];
+    // let user = data['user'];
     let message = data['message'];
 
-    add_new_message(type, user, message);
-    update_room_list(type);
+     add_new_message('message', 'yxy', message);
+    // update_room_list(type);
 };
 
 chatSocket.onopen = function () {
-    update_room_list("user in");
+    // update_room_list("user in");
 };
 
 chatSocket.onclose = function (e) {
