@@ -1,4 +1,6 @@
-let roomName = document.getElementById("name").innerHTML;
+// let roomName = document.getElementById("name").innerHTML;
+let roomName = "yyy";
+// var chatSocket = new WebSocket('ws://' + window.location.host);
 var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + roomName + '/');
 
 chatSocket.onmessage = function (e) {

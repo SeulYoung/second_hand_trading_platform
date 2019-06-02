@@ -1,11 +1,13 @@
 from channels.db import database_sync_to_async
 from channels.generic.websocket import AsyncWebsocketConsumer, AsyncJsonWebsocketConsumer
 import json
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 from account_app.models import MyUser
-from chat_app.models import ChatRoomMembers
-
-ChatRoomMembers.objects.all().delete()
+# from chat_app.models import ChatRoomMembers
+#
+# ChatRoomMembers.objects.all().delete()
 
 
 class ChatConsumer(AsyncJsonWebsocketConsumer):
@@ -51,10 +53,70 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
                     "time": time,
                 },
             )
-        # else:
-        #     try:
-        #         user=
+        else:
+            try:
+                user = MyUser.objects.get(user_id=from_user)
+            except MyUser.DoesNotExist:
+                user = None
+            from_username = MyUser.username
+            await self.channel_layer.group_send(
+                to_user,
+                {
+                    "type": "push.message",
+                    "event": {
+                        'message': message.get('message'),
+                        'group': self.group_name,
+                        'from_user': from_user,
+                        'time': time,
+                        'from_username': from_username,
+                    },
+                },
+            )
 
+    async def chat_message(self, event):
+        # 处理发送给我们de “chat.message”事件
+        await self.send_json({
+            "message": event["message"],
+            "from_user": event["from_user"],
+            "to_user": event["to_user"],
+            "time": event["time"],
+        })
+
+
+# 推送consumer
+class PushConsumer(AsyncWebsocketConsumer):
+
+    async def connect(self):
+        self.group_name = self.scope['url_route']['kwargs']['id']
+
+        await self.channel_layer.group_add(
+            self.group_name,
+            self.channel_name
+        )
+        await self.accept()
+
+    async def disconnect(self, close_code):
+        await self.channel_layer.group_discard(
+            self.group_name,
+            self.channel_name
+        )
+
+    async def push_message(self, event):
+        # print(event)
+        await self.send(text_data=json.dumps({
+            "event": event['event']
+        }))
+
+
+def push(username, event):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        username,
+        {
+            "type": "push.message",
+            "event": event
+        }
+    )
 #     # verify if it's a legal user
 #     if not isinstance(self.user, MyUser):
 #         await self.disconnect(4000)
