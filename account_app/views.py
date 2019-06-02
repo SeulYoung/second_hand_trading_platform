@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.backends import ModelBackend
-from account_app.models import MyUser, Buyer
+from account_app.models import MyUser, Buyer, Seller
 from django.contrib import auth
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_protect
@@ -19,19 +19,23 @@ class MyBackend(ModelBackend):
 
 
 def index(request):
+    if request.user.is_authenticated:
+        is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+        is_seller = Seller.objects.filter(seller_id=request.user).first()
+        return render(request, 'index.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
     return render(request, 'index.html')
 
 
 @csrf_protect
 def login(request):
     if request.method == "POST":
-        username = request.method.GET('username')
-        password = request.method.GET('password')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
                 auth.login(request, user)
-                return redirect('/')
+                return HttpResponseRedirect('../')
             else:
                 return render(request, "login.html", {'errorMsg': '该用户不存在或密码错误'})
     return render(request, 'login.html')
@@ -63,6 +67,6 @@ def registration(request):
 
         user = MyUser.objects.create_user(email=email, username=username, password=password)
         MyUser.objects.filter(username=username).update(sex=gender, phone=phone)
-        Buyer.objects.create(buyer_id=user, cardNum=cardNum, nickName=nickName)
+        Buyer.objects.create(buyer_id=user, cardNum=cardNum, nickName=nickName, isActive=True)
         return HttpResponseRedirect('/login/')
     return render(request, 'register.html')

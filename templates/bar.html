@@ -46,8 +46,20 @@
             </div>
             <div class="top-header-right">
                 <ul>
-                    <li><a href="/login">Login</a><span> </span></li>
-                    <li><a href="/registration">Join</a></li>
+                    {% if is_buyer or is_seller %}
+                        {% if is_buyer.isActive == True %}
+                            <li><a href="#">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
+                            <li><a href="#">切换为卖家</a><span> </span></li>
+                        {% else %}
+                            <li><a href="#">{{ is_seller.seller_id.username }}</a><span> </span></li>
+                            <li><a href="#">切换为买家</a><span> </span></li>
+                        {% endif %}
+                        <li><a href="#">消息</a><span> </span></li>
+                        <li><a href="#">注销</a></li>
+                    {% else %}
+                        <li><a href="/login">登录</a><span> </span></li>
+                        <li><a href="/registration">注册</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="clear"></div>
