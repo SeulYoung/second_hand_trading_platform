@@ -39,11 +39,7 @@ class MyUser(AbstractBaseUser):
         null=False,
     )
     phone = models.CharField(max_length=13)
-    GENDER_CHOICE = (
-        (0, u'男'),
-        (1, u'女'),
-    )
-    sex = models.CharField(max_length=3, choices=GENDER_CHOICE)
+    sex = models.CharField(max_length=3)
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

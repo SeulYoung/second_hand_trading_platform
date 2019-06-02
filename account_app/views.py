@@ -4,6 +4,7 @@ from django.contrib.auth.backends import ModelBackend
 from account_app.models import MyUser, Buyer
 from django.contrib import auth
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_protect
 import re
 
 
@@ -21,6 +22,7 @@ def index(request):
     return render(request, 'index.html')
 
 
+@csrf_protect
 def login(request):
     if request.method == "POST":
         username = request.method.GET('username')
@@ -35,6 +37,7 @@ def login(request):
     return render(request, 'login.html')
 
 
+@csrf_protect
 def registration(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -58,7 +61,8 @@ def registration(request):
         if info is not None:
             return render(request, "register.html", {'errMsg': '该用户名已存在'})
 
-        MyUser.objects.create_user(email=email, username=username, password=password, sex=gender, phone=phone)
-        Buyer.objects.create(cardNum=cardNum, nickName=nickName)
+        user = MyUser.objects.create_user(email=email, username=username, password=password)
+        MyUser.objects.filter(username=username).update(sex=gender, phone=phone)
+        Buyer.objects.create(buyer_id=user, cardNum=cardNum, nickName=nickName)
         return HttpResponseRedirect('/login/')
     return render(request, 'register.html')

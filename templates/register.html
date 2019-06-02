@@ -13,6 +13,7 @@
                 <h1>创建您的新账户</h1>
                 <div class="register-grids">
                     <form action="" method="post">
+                        {% csrf_token %}
                         <div class="register-top-grid">
                             <h3>个人基本信息</h3>
                             <div>

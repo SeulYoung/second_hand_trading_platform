@@ -21,6 +21,7 @@
                     <h3>已经拥有平台账号</h3>
                     <p>请您登陆平台愉快地使用吧！</p>
                     <form action="" method="post">
+                        {% csrf_token %}
                         <div>
                             <span>邮箱/用户名<label>*</label></span>
                             <input type="text" name="username" id="username" placeholder="请输入用户名或邮箱" required/>
