@@ -104,13 +104,25 @@ img {
 /*end reset*/
 body {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: #FFF;
+    /*background: #FFF;*/
+    background: url(../images/left_img.png), url(../images/right_img.png);
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
 }
 
 /*----start-wrap----*/
 .wrap {
     width: 70%;
     margin: 0 auto;
+}
+
+.top1 {
+    background: url(../images/top_background1.jpg);
+    text-align:center;
+}
+
+.megamenu{
+    background: url(../images/top_background.png);
 }
 
 .top-header {
@@ -243,16 +255,17 @@ body {
 .mid-grid-left {
     float: left;
     width: 26%;
-    padding-top: 1.3em;
+    padding-top: 1.2em;
 }
 
 .mid-grid-right {
     float: right;
-    padding: 2.5em 0 1em 0;
+    padding: .01em 0 0.1em 0;
 }
 
 .mid-grid-left input[type="text"] {
-    border: 1px solid #08080B;
+    border: 3px solid #1358ce;
+    /*border: 1px solid #08080B;*/
     border-right: none;
     border-left: none;
     border-top: none;
@@ -275,7 +288,7 @@ body {
 
 .logo span {
     width: 250px;
-    height: 150px;
+    height: 70px;
     display: inline-block;
     background: url(../images/logo.png) no-repeat -7px 6px;
 }
