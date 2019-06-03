@@ -12,7 +12,7 @@ chatSocket.onmessage = function (e) {
     // let user = data['user'];
     let message = data['message'];
 
-    add_new_message('message', 'yxy', message);
+    add_new_message('message', 'wkz', message);
     // update_room_list(type);
 };
 
@@ -142,52 +142,56 @@ function add_new_message(type, user, message) {
     //     chatBox.appendChild(new_member_out);
     //     chatBox.scrollTop = chatBox.scrollHeight;
     // }
-
+    let judgeUser;
+    if (message==='yyy')
+        judgeUser='yyy';
+    else
+        judgeUser='yxy';
     // let judgeUser = document.getElementById("myname").innerHTML;
     let new_div = document.createElement("div");
-    // if (user === judgeUser)
-    //     new_div.setAttribute("class", "chat_record me_record");
-    // else
-    new_div.setAttribute("class", "chat_record you_record");
+    if (user === judgeUser||judgeUser==='yyy')
+        new_div.setAttribute("class", "chat_record me_record");
+    else
+        new_div.setAttribute("class", "chat_record you_record");
     let new_img = document.createElement("img");
-    // if (user === judgeUser)
-    //     new_img.setAttribute("class", "portrait me_portrait");
-    // else
-    new_img.setAttribute("class", "portrait you_portrait");
+    if (user === judgeUser||judgeUser==='yyy')
+        new_img.setAttribute("class", "portrait me_portrait");
+    else
+        new_img.setAttribute("class", "portrait you_portrait");
     new_img.setAttribute("src", "/static/chat_app/img/thomas.jpg");
     new_img.setAttribute("alt", "");
     new_div.appendChild(new_img);
     let new_div_message = document.createElement("div");
-    // if (user === judgeUser)
-    //     new_div_message.setAttribute("class", "me_message");
-    // else
-    new_div_message.setAttribute("class", "you_message");
+    if (user === judgeUser||judgeUser==='yyy')
+        new_div_message.setAttribute("class", "me_message");
+    else
+        new_div_message.setAttribute("class", "you_message");
     let new_span = document.createElement("span");
-    // if (user === judgeUser)
-    //     new_span.setAttribute("class", "user_name you_name");
-    // else
-    new_span.setAttribute("class", "user_name");
+    if (user === judgeUser||judgeUser==='yyy')
+        new_span.setAttribute("class", "user_name you_name");
+    else
+        new_span.setAttribute("class", "user_name");
     new_span.innerHTML = user;
     new_div_message.appendChild(new_span);
     let new_message = document.createElement("div");
-    // if (user === judgeUser)
-    //     new_message.setAttribute("class", "bubble me");
-    // else
-    new_message.setAttribute("class", "bubble you");
+    if (user === judgeUser||judgeUser==='yyy')
+        new_message.setAttribute("class", "bubble me");
+    else
+        new_message.setAttribute("class", "bubble you");
 
     appendUnicode(new_message, message);
 
-    document.getElementById("preview").innerHTML = message;
+    // document.getElementById("preview").innerHTML = message;
     new_div_message.appendChild(new_message);
     new_div.appendChild(new_div_message);
     chatBox.appendChild(new_div);
     chatBox.scrollTop = chatBox.scrollHeight;
 
 
-    let t = new Date();
-    let hour = t.getHours();
-    let minute = t.getMinutes();
-    document.getElementById("time").innerHTML = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
+    // let t = new Date();
+    // let hour = t.getHours();
+    // let minute = t.getMinutes();
+    // document.getElementById("time").innerHTML = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
 }
 
 function update_room_list(type) {
