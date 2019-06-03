@@ -1183,7 +1183,7 @@ h2.resp-accordion:first-child {
     min-height: 700px;
 }
 
-.login-main h1 {
+.login-main h1,h2,h3 {
     color: #08080B;
     font-weight: 700;
     font-size: 1.2em;

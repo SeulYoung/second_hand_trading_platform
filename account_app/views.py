@@ -23,7 +23,10 @@ def index(request):
     if request.user.is_authenticated:
         is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
         is_seller = Seller.objects.filter(seller_id=request.user).first()
-        return render(request, 'index.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
+        if is_seller.isActive == True:
+            return render(request, 'sellerhome.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
+        else:
+            return render(request, 'index.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
     return render(request, 'index.html')
 
 
@@ -76,6 +79,8 @@ def registration(request):
 
 @login_required(login_url='')
 def logout(request):
+    Buyer.objects.filter(buyer_id=request.user).update(isActive=True)
+    Seller.objects.filter(seller_id=request.user).update(isActive=False)
     auth.logout(request)
     return redirect('index')
 
