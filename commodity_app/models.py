@@ -4,6 +4,7 @@ from account_app.models import MyUser, Buyer, Seller
 
 class Commodity(models.Model):
     commodity_id = models.AutoField(primary_key=True, auto_created=100001)
+    seller_id = models.ForeignKey('account_app.Seller', to_field='seller_id', on_delete=models.CASCADE)
     TYPE_CHOICE = (
         (0, u'手机'),
         (1, u'农用物资'),
