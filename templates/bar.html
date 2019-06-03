@@ -46,8 +46,20 @@
             </div>
             <div class="top-header-right">
                 <ul>
-                    <li><a href="/login">Login</a><span> </span></li>
-                    <li><a href="/registration">Join</a></li>
+                    {% if is_buyer or is_seller %}
+                        {% if is_buyer.isActive == True %}
+                            <li><a href="#">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
+                            <li><a href="#">切换为卖家</a><span> </span></li>
+                        {% else %}
+                            <li><a href="#">{{ is_seller.seller_id.username }}</a><span> </span></li>
+                            <li><a href="#">切换为买家</a><span> </span></li>
+                        {% endif %}
+                        <li><a href="#">消息</a><span> </span></li>
+                        <li><a href="#">注销</a></li>
+                    {% else %}
+                        <li><a href="/login">登录</a><span> </span></li>
+                        <li><a href="/registration">注册</a></li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="clear"></div>
@@ -55,10 +67,10 @@
     </div>
     <!----start-mid-head---->
     <div class="mid-header">
-        <div class="wrap">
+        <div class="wrap top1">
             <div class="mid-grid-left">
                 <form>
-                    <input type="text" placeholder="What Are You Looking for?"/>
+                    <input type="text" placeholder="搜索"/>
                 </form>
             </div>
             <div class="mid-grid-right">
@@ -73,7 +85,7 @@
         <div class="wrap">
             <!-- start header menu -->
             <ul class="megamenu skyblue">
-                <li class="grid"><a class="color2" href="#">MEN</a>
+                <li class="grid"><a class="color2" href="#">数码</a>
                     <div class="megapanel">
                         <div class="row">
                             <div class="col1">
@@ -126,13 +138,13 @@
                             </div>
                             <div class="col1 men">
                                 <div class="men-pic">
-                                    <img src="images/men.png" title=""/>
+                                    <img src="/static/images/men.png" title=""/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="active grid"><a class="color4" href="#">women</a>
+                <li class="active grid"><a class="color4" href="#">服装</a>
                     <div class="megapanel">
                         <div class="row">
                             <div class="col1">
@@ -213,7 +225,7 @@
                             </div>
                             <div class="col1 women">
                                 <div class="women-pic">
-                                    <img src="images/women.png" title=""/>
+                                    <img src="/static/images/women.png" title=""/>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +238,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a class="color5" href="#">KIDS</a>
+                <li><a class="color5" href="#">居家</a>
                     <div class="megapanel">
                         <div class="row">
                             <div class="col1">
@@ -267,7 +279,7 @@
                             </div>
                             <div class="col1 kids">
                                 <div class="kids-pic">
-                                    <img src="images/kids1.png" title=""/>
+                                    <img src="/static/images/kids1.png" title=""/>
                                 </div>
                             </div>
                             <div class="col1"></div>
@@ -277,7 +289,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a class="color6" href="#">SPORTS</a>
+                <li><a class="color6" href="#">运动</a>
                     <div class="megapanel">
                         <div class="row">
                             <div class="col1">
@@ -332,7 +344,7 @@
                             </div>
                             <div class="col1 sports">
                                 <div class="sports-pic">
-                                    <img src="images/sport.png" title=""/>
+                                    <img src="/static/images/sport.png" title=""/>
                                 </div>
                             </div>
                         </div>
@@ -345,7 +357,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a class="color7" href="#">NIKE SPORTSWEAR</a>
+                <li><a class="color7" href="#">家电</a>
                     <div class="megapanel">
                         <div class="row">
                             <div class="col1">
@@ -413,7 +425,7 @@
                             </div>
                             <div class="col1 nike">
                                 <div class="nike-pic">
-                                    <img src="images/nike.png" title=""/>
+                                    <img src="/static/images/nike.png" title=""/>
                                 </div>
                             </div>
                         </div>
@@ -426,7 +438,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a class="color8" href="#">NIKEiD</a>
+                <li><a class="color8" href="#">关注</a>
                     <div class="megapanel">
                         <div class="row">
                             <div class="col1">

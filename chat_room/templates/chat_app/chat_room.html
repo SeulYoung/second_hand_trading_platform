@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Chat Room {{ room_name }}{% endblock %}
+{% block title %}与{{ room_name }}通话中{% endblock %}
 
 {% block head %}
     {% include 'bar.html' %}
+    {% include 'head.html' %}
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,38 +41,88 @@
                         <span class="time" id="time"></span>
                         <span class="preview" id="preview"></span>
                     </li>
+                    <li class="person" data-chat="person1">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Thomas Bangalter</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">I was wondering...</span>
+                    </li>
+                    <li class="person" data-chat="person2">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Dog Woofson</span>
+                        <span class="time">1:44 PM</span>
+                        <span class="preview">I've forgotten how it felt before</span>
+                    </li>
+                    <li class="person" data-chat="person3">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Louis CK</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">But we’re probably gonna need a new carpet.</span>
+                    </li>
+                    <li class="person" data-chat="person3">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Louis CK</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">But we’re probably gonna need a new carpet.</span>
+                    </li>
+                    <li class="person" data-chat="person3">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Louis CK</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">But we’re probably gonna need a new carpet.</span>
+                    </li>
+                    <li class="person" data-chat="person3">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Louis CK</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">But we’re probably gonna need a new carpet.</span>
+                    </li>
+                    <li class="person" data-chat="person3">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Louis CK</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">But we’re probably gonna need a new carpet.</span>
+                    </li>
+                    <li class="person" data-chat="person4">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Bo Jackson</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">It’s not that bad...</span>
+                    </li>
+                    <li class="person" data-chat="person5">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Michael Jordan</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">Wasup for the third time like is you blind bitch</span>
+                    </li>
+                    <li class="person" data-chat="person6">
+                        <img src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
+                        <span class="name">Drake</span>
+                        <span class="time">2:09 PM</span>
+                        <span class="preview">howdoyoudoaspace</span>
+                    </li>
                 </ul>
-
-                <div class="heap_topics">
-                    <span>Heap Topics: </span>
-                    <a onclick="refresh()"><img class="refresh" src="{% static "chat_app/img/refresh.png" %}"></a>
-                </div>
-
-                <ul class="people" id="hot_room"></ul>
             </div>
 
             <div class="right">
                 <div class="top">
-                    <span style="flex: 1;"><span class="name">Chat Room: {{ room_name }}</span></span>
-                    <div id="sideMenu">
-                        <span class="fa fa-navicon" id="sideMenuClosed" style="font-size: 19px; cursor:pointer"></span>
-                    </div>
+                    <span style="flex: 1;"><span class="name">{{ room_name }}</span></span>
                 </div>
-                <div id="sideMenuContainer">
-                    <h2>Group Chat Member</h2>
-                    <div class="user_list" id="user_{{ user.username }}">
-                        <img class="user_portrait" src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
-                        <span class="fa" id="myname">{{ user.username }}</span>
-                    </div>
-                    {% if members %}
-                        {% for key in members %}
-                            <div class="user_list" id="user_{{ key.user }}">
-                                <img class="user_portrait" src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>
-                                <span class="fa">{{ key.user }}</span>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
+{#                <div id="sideMenuContainer">#}
+{#                    <h2>Group Chat Member</h2>#}
+{#                    <div class="user_list" id="user_{{ user.username }}">#}
+{#                        <img class="user_portrait" src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>#}
+{#                        <span class="fa" id="myname">{{ user.username }}</span>#}
+{#                    </div>#}
+{#                    {% if members %}#}
+{#                        {% for key in members %}#}
+{#                            <div class="user_list" id="user_{{ key.user }}">#}
+{#                                <img class="user_portrait" src="{% static 'chat_app/img/thomas.jpg' %}" alt=""/>#}
+{#                                <span class="fa">{{ key.user }}</span>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    {% endif %}#}
+{#                </div>#}
                 <div class="chat" data-chat="person1">
                     <div class="chat_box" id="chat_box">
                         <div class="conversation-start">
@@ -139,4 +191,5 @@
         });
     </script>
 
+    {% include 'footer.html' %}
 {% endblock %}
