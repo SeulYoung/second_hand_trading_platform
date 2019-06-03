@@ -14,7 +14,7 @@ function cancelEvent (event) {
 
 function getGuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
         return v.toString(16);
     });
 }
@@ -53,7 +53,7 @@ function getGuid() {
         var keys = Array.prototype.slice.call(arguments),
             callback = keys.pop(),
             result = [],
-            single = keys.length == 1,
+            single = keys.length === 1,
             value,
             allFound = true,
             prefix = storageGetPrefix(),
@@ -62,7 +62,7 @@ function getGuid() {
         for (i = 0; i < keys.length; i++)
         {
             key = keys[i] = prefix + keys[i];
-            if (key.substr(0, 3) != 'xt_' && cache[key] !== undefined)
+            if (key.substr(0, 3) !== 'xt_' && cache[key] !== undefined)
             {
                 result.push(cache[key]);
             }
