@@ -5,6 +5,7 @@ from account_app.models import MyUser, Buyer, Seller
 from django.contrib import auth
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
 import re
 
 
@@ -68,5 +69,27 @@ def registration(request):
         user = MyUser.objects.create_user(email=email, username=username, password=password)
         MyUser.objects.filter(username=username).update(sex=gender, phone=phone)
         Buyer.objects.create(buyer_id=user, cardNum=cardNum, nickName=nickName, isActive=True)
+        Seller.objects.create(seller_id=user, isActive=False)
         return HttpResponseRedirect('/login/')
     return render(request, 'register.html')
+
+
+@login_required(login_url='')
+def logout(request):
+    auth.logout(request)
+    return redirect('index')
+
+
+def switch(request):
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    if is_buyer.isActive == True:
+        Buyer.objects.filter(buyer_id=request.user).update(isActive=False)
+        Seller.objects.filter(seller_id=request.user).update(isActive=True)
+        return redirect('index')
+    else:
+        Buyer.objects.filter(buyer_id=request.user).update(isActive=True)
+        Seller.objects.filter(seller_id=request.user).update(isActive=False)
+        return redirect('index')
+
+
