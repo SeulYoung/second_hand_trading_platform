@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}卖家首页{% endblock %}
+{% block head %}{% include 'head.html' %}{% endblock %}
+
+{% block body %}
+    {% include 'bar.html' %}
+    <!---start-wrap---->
+    <!--- start-content---->
+    <div class="content login-box">
+        <div class="login-main">
+            <div class="wrap">
+                <h1>发布新商品</h1>
+                <div class="login-left">
+                    <h3>从来没有使用过？</h3>
+                    <p>注册您的账户，方便您更好地使用二手交易平台，找到您想要购买的商品</p>
+                    <p>您也可以注册卖家账号，在平台上分享和出售您不需要但仍有价值的商品</p>
+                    <a class="acount-btn" href="/registration">注册一个新账号</a>
+                </div>
+                <h2>我发布的商品</h2>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--- //End-content---->
+    <!---//End-wrap---->
+    {% include 'footer.html' %}
+{% endblock %}
+
+
+
