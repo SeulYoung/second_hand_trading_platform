@@ -86,10 +86,14 @@ def switch(request):
     if is_buyer.isActive == True:
         Buyer.objects.filter(buyer_id=request.user).update(isActive=False)
         Seller.objects.filter(seller_id=request.user).update(isActive=True)
-        return redirect('index')
+        return redirect('sellerhome')
     else:
         Buyer.objects.filter(buyer_id=request.user).update(isActive=True)
         Seller.objects.filter(seller_id=request.user).update(isActive=False)
         return redirect('index')
 
 
+def sellerhome(request):
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
