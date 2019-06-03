@@ -385,8 +385,8 @@
 
         var editorDiv = this.$editor;
         this.$editor.on("change keydown keyup resize scroll", function (e) {
-            if (MAX_LENGTH_ALLOWED_KEYS.indexOf(e.which) == -1 &&
-                e.which == 13) {
+            if (MAX_LENGTH_ALLOWED_KEYS.indexOf(e.which) === -1 &&
+                e.which === 13) {
                 e.preventDefault();
                 self.onChange();
 
@@ -404,9 +404,9 @@
                 document.getElementById("chat-message-input1").innerHTML = "";
                 return;
             }
-            if (MAX_LENGTH_ALLOWED_KEYS.indexOf(e.which) == -1 &&
-                !((e.ctrlKey || e.metaKey) && e.which == 65) && // Ctrl + A
-                !((e.ctrlKey || e.metaKey) && e.which == 67) && // Ctrl + C
+            if (MAX_LENGTH_ALLOWED_KEYS.indexOf(e.which) === -1 &&
+                !((e.ctrlKey || e.metaKey) && e.which === 65) && // Ctrl + A
+                !((e.ctrlKey || e.metaKey) && e.which === 67) && // Ctrl + C
                 editorDiv.text().length + editorDiv.find('img').length >= editorDiv.attr('maxlength')) {
                 e.preventDefault();
             }
