@@ -29,20 +29,20 @@ chat = {
 //   friends.name = f.querySelector('.name').innerText;
 //   chat.name.innerHTML = friends.name;
 // }
-
-function GotoOtherPerson() {
-    let other = document.getElementById("other_room");
-    let room_name = other.value.toLowerCase().replace(" ", "_");
-    if (!/^([a-z\-_]){3,12}$/.test(room_name)) {
-        myAlert("invalid");
-        return;
-    }
-    if(room_name===roomName){
-        myAlert("repeat");
-        return;
-    }
-    window.location.href='../' + room_name;
-}
+//
+// function GotoOtherPerson() {
+//     let other = document.getElementById("other_room");
+//     let room_name = other.value.toLowerCase().replace(" ", "_");
+//     if (!/^([a-z\-_]){3,12}$/.test(room_name)) {
+//         myAlert("invalid");
+//         return;
+//     }
+//     if(room_name===roomName){
+//         myAlert("repeat");
+//         return;
+//     }
+//     window.location.href='../' + room_name;
+// }
 
 // function refresh() {
 //     $.ajax({
