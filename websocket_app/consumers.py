@@ -7,11 +7,6 @@ from asgiref.sync import async_to_sync
 from account_app.models import MyUser
 
 
-# from chat_app.models import ChatRoomMembers
-#
-# ChatRoomMembers.objects.all().delete()
-
-
 class ChatConsumer(AsyncJsonWebsocketConsumer):
     chats = dict()
 
@@ -74,7 +69,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
             )
 
     async def chat_message(self, event):
-        # 处理发送给我们de “chat.message”事件
+        # 处理发送给我们的 “chat.message”事件
         await self.send_json({
             "message": event["message"],
             "from_user": event["from_user"],
