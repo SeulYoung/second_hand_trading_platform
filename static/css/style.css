@@ -117,12 +117,12 @@ body {
 }
 
 .top1 {
-    background: url(../images/top_background1.jpg);
+    background: url(../images/top_background1.png);
     text-align:center;
 }
 
 .megamenu{
-    background: url(../images/top_background.png);
+    /*background: url(../images/top_background1.png);*/
 }
 
 .top-header {
