@@ -396,8 +396,17 @@
                 if (message.length === 0)
                     return;
 
+                let t = new Date();
+                let hour = t.getHours();
+                let minute = t.getMinutes();
+                let sendTime = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
+                let from_user = "yyy";
+                let to_user = "wkz";
                 chatSocket.send(JSON.stringify({
-                    'message': message
+                    'message': message,
+                    'from_user': from_user,
+                    'to_user': to_user,
+                    'time': sendTime,
                 }));
 
                 messageInputDom.value = '';

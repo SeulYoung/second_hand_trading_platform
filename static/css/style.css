@@ -232,10 +232,20 @@ body {
 
 }
 
+.messageNmae{
+    color: #1e88e5;
+}
+
+.displayMessage{
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 400px;
+}
+
 .top-header-right ul li:first-child span {
-    height: 13px;
-    width: 1px;
-    background: #FFF;
+    /*height: 13px;*/
+    /*width: 1px;*/
+    /*background: #FFF;*/
     display: inline-block;
     margin: 0 0.5em 0 0.6em;
     vertical-align: middle;

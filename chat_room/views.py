@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def tem(request):
-    return render(request, 'chat_app/index.html')
+    return render(request, 'chat_app/ttttttt.html')
 
 
 def chat_room(request):

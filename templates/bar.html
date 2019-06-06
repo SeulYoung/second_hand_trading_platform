@@ -44,7 +44,7 @@
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="top-header-right">
+            <div class="top-header-right" style="position:relative">
                 <ul>
                     {% if is_buyer or is_seller %}
                         {% if is_buyer.isActive == True %}
@@ -54,7 +54,10 @@
                             <li><a href="#">{{ is_seller.seller_id.username }}</a><span> </span></li>
                             <li><a href="/switch">切换为买家</a></li>
                         {% endif %}
-                        <li><a href="#">消息</a></li>
+                        <li>
+                            <a onclick="dislayMessageNotification()" style="cursor:pointer;">消息</a>
+                            {% include 'chatMessage.html' %}
+                        </li>
                         <li><a href="/logout">注销</a></li>
                     {% else %}
                         <li><a href="/login">登录</a><span> </span></li>
