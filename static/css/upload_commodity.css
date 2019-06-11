@@ -1,0 +1,114 @@
+
+.buttons {
+    height: 40px;
+}
+
+.returnBtn {
+    margin-right: 20px;
+    background-color: #BABABA;
+    border: 1px solid #CCCCCC;
+    border-radius: 20px;
+    box-shadow: inset #CCCCCC 0 1px 1px, #CCCCCC 0 1px 1px;
+    color: #FFF;
+    cursor: pointer;
+    float: right;
+    font: bold 13px Arial;
+    padding: 10px 40px;
+}
+
+.returnBtn:HOVER {
+    background-image: -moz-linear-gradient(to top, blue, #85CFEE);
+}
+
+.saveBtn {
+    margin-right: 20px;
+    background-color: #4169E1;
+    border: 1px solid #436EEE;
+    border-radius: 20px;
+    box-shadow: inset #436EEE 0 1px 1px, #436EEE 0 1px 1px;
+    color: #FFF;
+    cursor: pointer;
+    float: right;
+    font: bold 13px Arial;
+    padding: 10px 40px;
+}
+
+.saveBtn:HOVER {
+    background-image: -moz-linear-gradient(to top, blue, #85CFEE);
+}
+
+.h_title{
+    letter-spacing: 10px;
+}
+
+.btn_group {
+    text-align:right;
+    padding-top:10px;
+}
+
+.wrapper1 {
+    margin: 30px;
+    width: 310px;
+    float:left;
+    opacity: 0.9;
+}
+
+.white_content {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    width: 25%;
+    height: 51%;
+    padding: 20px;
+    border: 10px solid #a39a8f;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+}
+
+.infoBox {
+    background-color: #F0F4F6;
+    /*上divcolor*/
+    border: 1px solid #BfD6E1;
+    border-radius: 5px;
+    color: #444;
+    font: 14px 'Microsoft YaHei', '微软雅黑';
+    margin: 0 auto;
+    width: 350px;
+    padding: 24px;
+    height: 535px;
+}
+
+.infoBox .infoBoxCenter {
+    text-align:right;
+    padding-top: 15px;
+    border-top: 1px solid #DDE0E8;
+    border-bottom: 1px solid #DDE0E8;
+}
+
+.infoBox .infoBoxCenter p {
+    margin-bottom: 10px;
+}
+
+.infoBox .infoLabel {
+    border: 1px solid #D2D9dC;
+    border-radius: 2px;
+    color: #444;
+    font: 13px 'Microsoft YaHei', '微软雅黑';
+    padding: 8px 14px;
+    margin-bottom: 8px;
+    width: 200px;
+    text-align:left;
+    text-overflow: ellipsis;
+}
+
+.infoBox .infoLabel:FOCUS {
+    border: 1px solid #B7D4EA;
+    box-shadow: 0 0 8px #B7D4EA;
+}
+
+.btn{
+    width: 100px;
+    height: 35px;
+}

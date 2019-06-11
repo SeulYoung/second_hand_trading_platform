@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}卖家首页{% endblock %}
-{% block head %}{% include 'head.html' %}{% endblock %}
+{% block head %}
+    {% include 'head.html' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/upload_commodity.css' %}">
+    <script src="{% static 'js/upload_commodity.js' %}"></script>
+{% endblock %}
 
 {% block body %}
     {% include 'bar.html' %}
@@ -10,7 +14,7 @@
     <div class="wrap" style="margin-left: 20%">
         <div class="price-rage">
             <h3 style="font-size: 1.25em">发布新的商品</h3>
-            <a class="acount-btn" href="/registration">发布新商品</a>
+            <a class="acount-btn" onclick="display_add_info()">发布新商品</a>
         </div>
     </div>
     <div class="wrap" style="margin-left: 20%">
@@ -332,6 +336,73 @@
     </div>
     <!--- //End-content---->
     <!---//End-wrap---->
+
+    <div id="light" class="white_content" style="top: 15%; width: auto; height: auto;">发布新商品
+        <a style="float: right;" href="javascript:void(0)"
+           onclick="document.getElementById('light').style.display='none';
+               document.getElementById('fade').style.display='none'">关闭</a>
+        <div>
+            <div class="wrapper1" style="width: auto;">
+                <div class="infoBox" style="height: 100%;">
+                    <div class="infoBoxCenter">
+                        <div id="editinfo" style="display: none">
+                            <p><label>商品名：</label>
+                                <input name='info' id='commodity_name' type="text" class="infoLabel" required="required" readonly
+                                       autocomplete="off" placeholder=""/>
+                            </p>
+                            <p><label>商品类别：</label>
+                                <select id="type" name="type" class="infoLabel" required>
+                                    <option value="" disabled selected style="display: none">选择商品的类别</option>
+                                    <option value="手机">手机</option>
+                                    <option value="农用物资">农用物资</option>
+                                    <option value="生鲜水果">生鲜水果</option>
+                                    <option value="园艺植物">园艺植物</option>
+                                    <option value="五金工具">五金工具</option>
+                                    <option value="电子零件">电子零件</option>
+                                    <option value="动漫/周边">动漫/周边</option>
+                                    <option value="宠物用品">宠物用品</option>
+                                    <option value="网络设备">网络设备</option>
+                                    <option value="服饰/配饰">服饰/配饰</option>
+                                    <option value="家装建材">家装建材</option>
+                                    <option value="家纺布艺">家纺布艺</option>
+                                    <option value="珠宝首饰">珠宝首饰</option>
+                                    <option value="游戏">游戏</option>
+                                    <option value="办公用品">办公用品</option>
+                                    <option value="图书">图书</option>
+                                    <option value="运动户外">运动户外</option>
+                                    <option value="票务娱乐">票务娱乐</option>
+                                    <option value="玩具">玩具</option>
+                                    <option value="车辆">车辆</option>
+                                    <option value="其他">其他</option>
+                                </select>
+                            </p>
+                            <p><label>价格：</label>
+                                <input name='info' id='price' type="number" class="infoLabel" required="required"
+                                       autocomplete="off" placeholder=""/>
+                            </p>
+                            <p><label>数量：</label>
+                                <input name="info" id='num' type="number" class="infoLabel"
+                                       required="required" autocomplete="off" placeholder=""/>
+                            </p>
+                            <p><label>描述：</label>
+                                <input name="info" id='desc' type="text" class="infoLabel"
+                                       autocomplete="off" placeholder=""/>
+                            </p>
+                             <p><label>上传图片：</label>
+                                <input name="info" id='pic' type="file" class="infoLabel" style="display: initial"
+                                       autocomplete="off" accept="image/jpeg, image/png, image.jpg" placeholder=""/>
+                             </p>
+                        </div>
+                        <p class="btn_group">
+                            <a class="btn btn-primary" onclick="upload()" style="margin-right: 10px;">确定</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="fade" class="black_overlay"></div>
     {% include 'footer.html' %}
 {% endblock %}
 

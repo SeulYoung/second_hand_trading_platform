@@ -79,8 +79,6 @@ def registration(request):
 
 @login_required(login_url='')
 def logout(request):
-    Buyer.objects.filter(buyer_id=request.user).update(isActive=True)
-    Seller.objects.filter(seller_id=request.user).update(isActive=False)
     auth.logout(request)
     return redirect('index')
 
