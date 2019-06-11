@@ -101,14 +101,19 @@ img {
     max-width: 100%;
 }
 
+.loginWp{
+    background: url(../images/white.png);
+}
+
 /*end reset*/
 body {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /*background: #FFF;*/
+    background: #FFF;
     background: url(../images/left_img.png), url(../images/right_img.png);
     background-position: left top, right top;
     background-repeat: no-repeat, no-repeat;
 }
+
 
 /*----start-wrap----*/
 .wrap {
@@ -117,12 +122,12 @@ body {
 }
 
 .top1 {
-    background: url(../images/top_background1.png);
+    background: url(../images/top_background2.png);
     text-align:center;
 }
 
 .megamenu{
-    /*background: url(../images/top_background1.png);*/
+    background: url(../images/top_background1.png);
 }
 
 .top-header {
@@ -265,8 +270,8 @@ body {
 .mid-grid-left {
     float: left;
     width: 26%;
-    padding-top: 1.2em;
-    backgroung : #ffa5b6;
+    padding-top: 1.3em;
+
 }
 
 .mid-grid-right {
@@ -275,15 +280,14 @@ body {
 }
 
 .mid-grid-left input[type="text"] {
-    border: 2px solid #c3b0ce;
-    /*border: 1px solid #08080B;*/
-    /*border-right: none;*/
-    /*border-left: none;*/
-    /*border-top: none;*/
+    border: 1px solid #08080B;
+    border-right: none;
+    border-left: none;
+    border-top: none;
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     outline: none;
     padding: 0.8em 0;
-    color: #cb2533;
+    color: #A5A5A5;
     width: 85%;
     -moz-transition: width 0.5s ease-out;
     -webkit-transition: width 0.5s ease-out;
