@@ -345,9 +345,10 @@
             <div class="wrapper1" style="width: auto;">
                 <div class="infoBox" style="height: 100%;">
                     <div class="infoBoxCenter">
+                        {% csrf_token %}
                         <div id="editinfo" style="display: none">
                             <p><label>商品名：</label>
-                                <input name='info' id='commodity_name' type="text" class="infoLabel" required="required" readonly
+                                <input name='info' id='commodity_name' type="text" class="infoLabel" required="required"
                                        autocomplete="off" placeholder=""/>
                             </p>
                             <p><label>商品类别：</label>

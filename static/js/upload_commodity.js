@@ -40,6 +40,9 @@ function upload() {
         type: "POST",
         dataType: 'json',
         data: data,
+        beforeSend:function(xhr,settings){
+            xhr.setRequestHeader("X-CSRFToken", "{{csrf_token}}");
+        },
         contentType: "application/json",  //缺失会出现URL编码，无法转成json对象
         success: function (result) {
             alert("上传成功");
