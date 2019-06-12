@@ -31,6 +31,5 @@ class Order(models.Model):
 class Comment(models.Model):
     buyer_id = models.ForeignKey('account_app.Buyer', to_field='buyer_id', on_delete=models.CASCADE)
     order_id = models.ForeignKey('Order', to_field='order_id', on_delete=models.CASCADE)
+    content = models.CharField(max_length=1024)
     create_at = models.DateTimeField(auto_now_add=True)
-
-
