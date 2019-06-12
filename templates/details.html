@@ -71,9 +71,9 @@
                             <li>
                                 <a href="optionallink.html">
                                     <img class="etalage_thumb_image"
-                                         src="/static/images/product-slide/image1_thumb.jpg"/>
+                                         src="{{ commodity.pic }}"/>
                                     <img class="etalage_source_image"
-                                         src="/static/images/product-slide/image1_large.jpg"/>
+                                         src="{{ commodity.pic }}"/>
                                 </a>
                             </li>
                             <li>
@@ -107,13 +107,14 @@
                             <h1>{{ commodity.name }}</h1>
                             <ul class="pro-rate">
                                 <li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
-                                <li><a href="#">0 Review(s) Add Review</a></li>
+                                <li><a href="#">联系卖家</a></li>
                             </ul>
                             <p class="product-detail-info">{{ commodity.desc }}</p>
                             <a class="learn-more" href="#"><h3>MORE DETAILS</h3></a>
                             <div class="product-more-details">
                                 <ul class="price-avl">
-                                    <li class="price"><span>${{ commodity.price }}</span><label>${{ commodity.price }}</label></li>
+                                    <li class="price">
+                                        <span>${{ commodity.price }}</span><label>${{ commodity.price }}</label></li>
                                     <li class="stock"><i>In stock</i></li>
                                     <div class="clear"></div>
                                 </ul>
@@ -140,7 +141,8 @@
                                         <option>6</option>
                                     </select>
                                 </ul>
-                                <input type="button" value="add to cart"/>
+                                <input type="button" value="加入收藏夹"/>
+                                <input type="button" value="立即购买"/>
                                 <ul class="product-share">
                                     <h3>All so Share On</h3>
                                     <ul>
