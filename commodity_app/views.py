@@ -27,3 +27,7 @@ def upload_commodity(request):
                                      desc=key['desc'])
 
         return HttpResponse(json.dumps(req))
+
+
+def favorites(request):
+    return render(request, 'favorites.html')
