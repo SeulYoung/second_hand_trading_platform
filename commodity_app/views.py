@@ -32,6 +32,7 @@ def upload_commodity(request):
 
 
 def favorites(request):
+    if request.method == "POST"
     return render(request, 'favorites.html')
 
 
