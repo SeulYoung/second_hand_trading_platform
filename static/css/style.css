@@ -101,7 +101,7 @@ img {
     max-width: 100%;
 }
 
-.loginWp{
+.loginWp {
     background: url(../images/white.png);
 }
 
@@ -114,7 +114,6 @@ body {
     background-repeat: no-repeat, no-repeat;
 }
 
-
 /*----start-wrap----*/
 .wrap {
     width: 70%;
@@ -123,15 +122,16 @@ body {
 
 .top1 {
     background: url(../images/top_background2.png);
-    text-align:center;
+    text-align: center;
 }
 
-.megamenu{
+.megamenu {
     background: url(../images/top_background1.png);
 }
 
 .top-header {
     background: #08080B;
+    height: 32px;
 }
 
 .top-header-left {
@@ -143,8 +143,9 @@ body {
 .top-header-center {
     float: left;
     width: 80%;
-    padding: 0.25em;
-    padding: 0.4em;
+    height: 32px;
+    /*padding: 0.25em;*/
+    /*padding: 0.4em;*/
 }
 
 .top-header-right {
@@ -208,25 +209,29 @@ body {
 
 .top-header-center-alert-left {
     float: left;
-    width: 39%;
+    width: 38%;;
     text-align: right;
+    height: 32px;
 }
 
 .top-header-center-alert-right {
     float: right;
-    width: 60%;
+    width: 70%;
+    position: center;
 }
 
 .top-header-center-alert-left h3 {
     color: #FFF;
     font-weight: 600;
-    font-size: 0.85em;
+    font-size: 0.2em;
+    height: 32px;
 }
 
 .vticker li {
     color: #F06B6B;
-    font-size: 0.8em;
-    font-weight: 100;
+    font-size: 1.3em;
+    font-weight: 300;
+    height: 32px;
 }
 
 .top-header-right ul li {
@@ -237,11 +242,11 @@ body {
 
 }
 
-.messageNmae{
+.messageNmae {
     color: #1e88e5;
 }
 
-.displayMessage{
+.displayMessage {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 400px;
@@ -627,9 +632,23 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
     margin-right: 0;
 }
 
+.product-pic {
+
+    width: 290px;
+    height: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 30px;
+
+}
+
 .product-pic a img {
-    display: block;
-    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    /*display: block;*/
+    /*margin: auto;*/
 }
 
 .product-grid-head {
@@ -1197,7 +1216,7 @@ h2.resp-accordion:first-child {
     min-height: 700px;
 }
 
-.login-main h1,h2,h3 {
+.login-main h1, h2, h3 {
     color: #08080B;
     font-weight: 700;
     font-size: 1.2em;
@@ -2858,7 +2877,8 @@ span.mail a:hover {
 
     .top-header-center {
         width: 66%;
-        padding: 0.4em 0 0 0em;
+        padding: 0em 0 0 0em;
+
     }
 
     .product-info-cust {
