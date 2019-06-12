@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}卖家首页{% endblock %}
+{% block title %}收藏夹{% endblock %}
 {% block head %}
     {% include 'head.html' %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/upload_commodity.css' %}">
@@ -345,11 +345,10 @@
             <div class="wrapper1" style="width: auto;">
                 <div class="infoBox" style="height: 100%;">
                     <div class="infoBoxCenter">
-                        <form action="/upload/" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div id="editinfo" style="display: none">
                             <p><label>商品名：</label>
-                                <input name='commodity_name' id='commodity_name' type="text" class="infoLabel" required="required"
+                                <input name='info' id='commodity_name' type="text" class="infoLabel" required="required"
                                        autocomplete="off" placeholder=""/>
                             </p>
                             <p><label>商品类别：</label>
@@ -379,26 +378,25 @@
                                 </select>
                             </p>
                             <p><label>价格：</label>
-                                <input name='price' id='price' type="number" class="infoLabel" required="required"
+                                <input name='info' id='price' type="number" class="infoLabel" required="required"
                                        autocomplete="off" placeholder=""/>
                             </p>
                             <p><label>数量：</label>
-                                <input name="num" id='num' type="number" class="infoLabel"
+                                <input name="info" id='num' type="number" class="infoLabel"
                                        required="required" autocomplete="off" placeholder=""/>
                             </p>
                             <p><label>描述：</label>
-                                <input name="desc" id='desc' type="text" class="infoLabel"
+                                <input name="info" id='desc' type="text" class="infoLabel"
                                        autocomplete="off" placeholder=""/>
                             </p>
                              <p><label>上传图片：</label>
-                                <input name="pic" id='pic' type="file" class="infoLabel" style="display: initial"
+                                <input name="info" id='pic' type="file" class="infoLabel" style="display: initial"
                                        autocomplete="off" accept="image/jpeg, image/png, image.jpg" placeholder=""/>
                              </p>
                         </div>
                         <p class="btn_group">
-                            <input class="btn btn-primary" onclick="upload()" style="margin-right: 10px;" type="submit" value="确定">
+                            <a class="btn btn-primary" onclick="upload()" style="margin-right: 10px;">确定</a>
                         </p>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -408,6 +406,3 @@
     <div id="fade" class="black_overlay"></div>
     {% include 'footer.html' %}
 {% endblock %}
-
-
-

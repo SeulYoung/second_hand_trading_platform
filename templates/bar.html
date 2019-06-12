@@ -32,13 +32,13 @@
                 </ul>
             </div>
             <div class="top-header-center">
-                <div class="top-header-center-alert-left">
-                    <h3>FREE DELIVERY</h3>
-                </div>
+{#                <div class="top-header-center-alert-left">#}
+{#                    <h3>免费 邮寄</h3>#}
+{#                </div>#}
                 <div class="top-header-center-alert-right">
                     <div class="vticker">
                         <ul>
-                            <li>Applies to orders of $50 or more. <label>Returns are always free.</label></li>
+                            <li>二手，从这里开始！ <label> 网罗天下，购尽精彩。</label></li>
                         </ul>
                     </div>
                 </div>
@@ -48,10 +48,10 @@
                 <ul>
                     {% if is_buyer or is_seller %}
                         {% if is_buyer.isActive == True %}
-                            <li><a href="#">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
+                            <li><a href="#" id="myname">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
                             <li><a href="/switch">切换为卖家</a></li>
                         {% else %}
-                            <li><a href="#">{{ is_seller.seller_id.username }}</a><span> </span></li>
+                            <li><a href="#" id="myname">{{ is_seller.seller_id.username }}</a><span> </span></li>
                             <li><a href="/switch">切换为买家</a></li>
                         {% endif %}
                         <li>

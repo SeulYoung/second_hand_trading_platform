@@ -1,6 +1,6 @@
 import json
 
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, redirect
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
@@ -19,11 +19,14 @@ def details(request):
 @csrf_exempt
 def upload_commodity(request):
     if request.method == 'POST':
-        req = json.loads(request.body.decode())
-        for key in req.get('commodity_info'):
-            seller = Seller.objects.filter(seller_id=request.user).first()
-            Commodity.objects.create(seller_id=seller, type=key['type'], price=key['price'],
-                                     pic=key['pic'], number=key['num'], name=key['commodity_name'],
-                                     desc=key['desc'])
+        seller = Seller.objects.filter(seller_id=request.user).first()
+        type = request.POST.get('type')
+        price = request.POST.get('price')
+        pic = request.FILES.get('pic')
+        number = request.POST.get('num')
+        name = request.POST.get('commodity_name')
+        desc = request.POST.get('desc')
+        Commodity.objects.create(seller_id=seller, type=type, pic=pic, number=number, price=price,
+                                 name=name, desc=desc)
 
-        return HttpResponse(json.dumps(req))
+        return redirect('sellerhome')

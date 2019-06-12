@@ -101,13 +101,18 @@ img {
     max-width: 100%;
 }
 
+.loginWp {
+    background: url(../images/white.png);
+}
+
 /*end reset*/
 body {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     /*background: #FFF;*/
-    background: url(../images/left_img.png), url(../images/right_img.png);
-    background-position: left top, right top;
-    background-repeat: no-repeat, no-repeat;
+    /*background: url(../images/left_img.png), url(../images/right_img.png);*/
+    /*background-position: left top, right top;*/
+    /*background-repeat: no-repeat, no-repeat;*/
+    background: url(../images/background.jpg) no-repeat;
 }
 
 /*----start-wrap----*/
@@ -117,16 +122,17 @@ body {
 }
 
 .top1 {
-    background: url(../images/top_background1.png);
-    text-align:center;
+    background: url(../images/top_background2.png);
+    text-align: center;
 }
 
-.megamenu{
-    /*background: url(../images/top_background1.png);*/
+.megamenu {
+    background: url(../images/top_background1.png);
 }
 
 .top-header {
     background: #08080B;
+    height: 32px;
 }
 
 .top-header-left {
@@ -138,8 +144,9 @@ body {
 .top-header-center {
     float: left;
     width: 80%;
-    padding: 0.25em;
-    padding: 0.4em;
+    height: 32px;
+    /*padding: 0.25em;*/
+    /*padding: 0.4em;*/
 }
 
 .top-header-right {
@@ -203,25 +210,29 @@ body {
 
 .top-header-center-alert-left {
     float: left;
-    width: 39%;
+    width: 38%;;
     text-align: right;
+    height: 32px;
 }
 
 .top-header-center-alert-right {
     float: right;
-    width: 60%;
+    width: 70%;
+    position: center;
 }
 
 .top-header-center-alert-left h3 {
     color: #FFF;
     font-weight: 600;
-    font-size: 0.85em;
+    font-size: 0.2em;
+    height: 32px;
 }
 
 .vticker li {
     color: #F06B6B;
-    font-size: 0.8em;
-    font-weight: 100;
+    font-size: 1.3em;
+    font-weight: 300;
+    height: 32px;
 }
 
 .top-header-right ul li {
@@ -232,11 +243,11 @@ body {
 
 }
 
-.messageNmae{
+.messageNmae {
     color: #1e88e5;
 }
 
-.displayMessage{
+.displayMessage {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 400px;
@@ -265,8 +276,8 @@ body {
 .mid-grid-left {
     float: left;
     width: 26%;
-    padding-top: 1.2em;
-    backgroung : #ffa5b6;
+    padding-top: 1.3em;
+
 }
 
 .mid-grid-right {
@@ -275,15 +286,14 @@ body {
 }
 
 .mid-grid-left input[type="text"] {
-    border: 2px solid #c3b0ce;
-    /*border: 1px solid #08080B;*/
-    /*border-right: none;*/
-    /*border-left: none;*/
-    /*border-top: none;*/
+    border: 1px solid #08080B;
+    border-right: none;
+    border-left: none;
+    border-top: none;
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     outline: none;
     padding: 0.8em 0;
-    color: #cb2533;
+    color: #A5A5A5;
     width: 85%;
     -moz-transition: width 0.5s ease-out;
     -webkit-transition: width 0.5s ease-out;
@@ -546,6 +556,8 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 .content-left-bottom-grid1 {
     text-align: left;
     margin-bottom: 1.5em;
+    width:110px;
+    background: #cec3ca;
 }
 
 .product-grid-head li {
@@ -612,6 +624,7 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
+    background: #cec0c6;
 }
 
 .product-grid:hover {
@@ -623,9 +636,23 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
     margin-right: 0;
 }
 
+.product-pic {
+
+    width: 290px;
+    height: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 30px;
+
+}
+
 .product-pic a img {
-    display: block;
-    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    /*display: block;*/
+    /*margin: auto;*/
 }
 
 .product-grid-head {
@@ -1193,7 +1220,7 @@ h2.resp-accordion:first-child {
     min-height: 700px;
 }
 
-.login-main h1,h2,h3 {
+.login-main h1, h2, h3 {
     color: #08080B;
     font-weight: 700;
     font-size: 1.2em;
@@ -2854,7 +2881,8 @@ span.mail a:hover {
 
     .top-header-center {
         width: 66%;
-        padding: 0.4em 0 0 0em;
+        padding: 0em 0 0 0em;
+
     }
 
     .product-info-cust {

@@ -1,5 +1,6 @@
 // let roomName = document.getElementById("name").innerHTML;
 let roomName = "yyy";
+let judgeUser = document.getElementById("myname").innerHTML;
 // var chatSocket = new WebSocket('ws://' + window.location.host);
 // var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + roomName + '/');
 var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/yyy/');
@@ -9,10 +10,11 @@ chatSocket.onmessage = function (e) {
     console.log(data);
 
     // let type = data['type'];
-    // let user = data['user'];
+    // let to_user = data['to_user'];
+    let from_user = data['from_user'];
     let message = data['message'];
 
-    add_new_message('message', 'wkz', message);
+    add_new_message(from_user, message);
     // update_room_list(type);
 };
 
@@ -45,13 +47,11 @@ document.querySelector('#chat-message-submit').onclick = function (e) {
     let hour = t.getHours();
     let minute = t.getMinutes();
     let sendTime = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
-    let from_user="yyy";
-    let to_user="wkz";
-
+    // let to_user="wkz";
     chatSocket.send(JSON.stringify({
         'message': message,
-        'from_user': from_user,
-        'to_user': to_user,
+        'from_user': judgeUser,
+        // 'to_user': to_user,
         'time': sendTime,
     }));
 
@@ -59,22 +59,22 @@ document.querySelector('#chat-message-submit').onclick = function (e) {
     document.getElementById("chat-message-input1").innerHTML = "";
 };
 
-function add_new_message(type, user, message) {
+function add_new_message(user, message) {
     let chatBox = document.getElementById("chat_box");
 
-    let judgeUser;
-    if (message === 'yyy')
-        judgeUser = 'yyy';
-    else
-        judgeUser = 'yxy';
+    // let judgeUser;
+    // if (message === 'yyy')
+    //     judgeUser = 'yyy';
+    // else
+    //     judgeUser = 'yxy';
     // let judgeUser = document.getElementById("myname").innerHTML;
     let new_div = document.createElement("div");
-    if (user === judgeUser || judgeUser === 'yyy')
+    if (user === judgeUser)
         new_div.setAttribute("class", "chat_record me_record");
     else
         new_div.setAttribute("class", "chat_record you_record");
     let new_img = document.createElement("img");
-    if (user === judgeUser || judgeUser === 'yyy')
+    if (user === judgeUser)
         new_img.setAttribute("class", "portrait me_portrait");
     else
         new_img.setAttribute("class", "portrait you_portrait");
@@ -82,19 +82,19 @@ function add_new_message(type, user, message) {
     new_img.setAttribute("alt", "");
     new_div.appendChild(new_img);
     let new_div_message = document.createElement("div");
-    if (user === judgeUser || judgeUser === 'yyy')
+    if (user === judgeUser)
         new_div_message.setAttribute("class", "me_message");
     else
         new_div_message.setAttribute("class", "you_message");
     let new_span = document.createElement("span");
-    if (user === judgeUser || judgeUser === 'yyy')
+    if (user === judgeUser)
         new_span.setAttribute("class", "user_name you_name");
     else
         new_span.setAttribute("class", "user_name");
     new_span.innerHTML = user;
     new_div_message.appendChild(new_span);
     let new_message = document.createElement("div");
-    if (user === judgeUser || judgeUser === 'yyy')
+    if (user === judgeUser)
         new_message.setAttribute("class", "bubble me");
     else
         new_message.setAttribute("class", "bubble you");

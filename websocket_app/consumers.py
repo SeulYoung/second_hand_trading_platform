@@ -32,7 +32,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
 
     async def receive_json(self, message, **kwargs):
         # 收到信息时调用
-        to_user = message.get('to_user')
+        # to_user = message.get('to_user')
         from_user = message.get('from_user')
         time = message.get('time')
         # 信息发送
@@ -44,7 +44,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
                     "type": "chat.message",
                     "message": message.get('message'),
                     "from_user": from_user,
-                    "to_user": to_user,
+                    # "to_user": to_user,
                     "time": time,
                 },
             )
@@ -55,7 +55,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
                 user = None
             from_username = MyUser.username
             await self.channel_layer.group_send(
-                to_user,
+                # to_user,
                 {
                     "type": "push.message",
                     "event": {
@@ -73,7 +73,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         await self.send_json({
             "message": event["message"],
             "from_user": event["from_user"],
-            "to_user": event["to_user"],
+            # "to_user": event["to_user"],
             "time": event["time"],
         })
 
