@@ -35,7 +35,7 @@
     <div class="content details-page">
         <!---start-product-details--->
         <div class="product-details">
-            <div class="wrap">
+            <div class="wrap" style="background-color:#cec0c6">
                 <ul class="product-head">
                     <li><a href="#">主页</a> <span>::</span></li>
                     <li class="active-page"><a href="#">商品详情</a></li>
@@ -107,39 +107,27 @@
                             <h1>{{ commodity.name }}</h1>
                             <ul class="pro-rate">
                                 <li><a class="product-rate" href="#"> <label> </label></a> <span> </span></li>
-                                <li><a href="#">联系卖家</a></li>
                             </ul>
                             <p class="product-detail-info">{{ commodity.desc }}</p>
-                            <a class="learn-more" href="#"><h3>MORE DETAILS</h3></a>
+                            <a class="learn-more" href="#"><h3>联系卖家</h3></a>
                             <div class="product-more-details">
                                 <ul class="price-avl">
                                     <li class="price">
-                                        <span>${{ commodity.price }}</span><label>${{ commodity.price }}</label></li>
-                                    <li class="stock"><i>In stock</i></li>
-                                    <div class="clear"></div>
-                                </ul>
-                                <ul class="product-colors">
-                                    <h3>available Colors ::</h3>
-                                    <li><a class="color1" href="#"><span> </span></a></li>
-                                    <li><a class="color2" href="#"><span> </span></a></li>
-                                    <li><a class="color3" href="#"><span> </span></a></li>
-                                    <li><a class="color4" href="#"><span> </span></a></li>
-                                    <li><a class="color5" href="#"><span> </span></a></li>
-                                    <li><a class="color6" href="#"><span> </span></a></li>
-                                    <li><a class="color7" href="#"><span> </span></a></li>
-                                    <li><a class="color8" href="#"><span> </span></a></li>
+                                        <label>${{ commodity.price }}</label></li>
                                     <div class="clear"></div>
                                 </ul>
                                 <ul class="prosuct-qty">
-                                    <span>Quantity:</span>
-                                    <select>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
+                                    <span>数量:</span>
+                                    <select id="num_select">
+                                        <option value="1">1</option>
                                     </select>
+                                    <script>
+                                        $(document).ready(function () {
+                                            for (var i = 2; i <= {{ commodity.number }}; i++) {
+                                                $("#num_select").append("<option value=\"" + i.toString() + "\">" + i.toString() + "</option>");
+                                            }
+                                        })
+                                    </script>
                                 </ul>
                                 <input type="button" value="加入收藏夹"/>
                                 <input type="button" value="立即购买"/>
