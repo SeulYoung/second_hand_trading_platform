@@ -83,6 +83,6 @@ class CustomerService(models.Model):
 
 class Seller(models.Model):
     seller_id = models.OneToOneField("MyUser", to_field='user_id', on_delete=models.CASCADE)
-    shopName = models.CharField(primary_key=True, max_length=32)
+    shopName = models.CharField(max_length=32)
     desc = models.CharField(max_length=255)
     isActive = models.BooleanField(default=True)

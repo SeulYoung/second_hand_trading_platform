@@ -104,6 +104,3 @@ def sellerhome(request):
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller,
                                                'my_commodity': my_commodity})
 
-    return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
-
-
