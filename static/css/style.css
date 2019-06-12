@@ -108,10 +108,11 @@ img {
 /*end reset*/
 body {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: #FFF;
-    background: url(../images/left_img.png), url(../images/right_img.png);
-    background-position: left top, right top;
-    background-repeat: no-repeat, no-repeat;
+    /*background: #FFF;*/
+    /*background: url(../images/left_img.png), url(../images/right_img.png);*/
+    /*background-position: left top, right top;*/
+    /*background-repeat: no-repeat, no-repeat;*/
+    background: url(../images/background.jpg) no-repeat;
 }
 
 /*----start-wrap----*/
@@ -555,6 +556,8 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 .content-left-bottom-grid1 {
     text-align: left;
     margin-bottom: 1.5em;
+    width:110px;
+    background: #cec3ca;
 }
 
 .product-grid-head li {
@@ -621,6 +624,7 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
+    background: #cec0c6;
 }
 
 .product-grid:hover {

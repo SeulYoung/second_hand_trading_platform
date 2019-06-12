@@ -100,3 +100,6 @@ def sellerhome(request):
     is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
     is_seller = Seller.objects.filter(seller_id=request.user).first()
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
+
+def favorites(request):
+    return render(request, 'favorites.html')
