@@ -7,7 +7,7 @@ class Commodity(models.Model):
     seller_id = models.ForeignKey('account_app.Seller', to_field='seller_id', on_delete=models.CASCADE, default=None)
     type = models.CharField(max_length=15, default=None)
     name = models.CharField(max_length=30, default=None)
-    pic = models.ImageField()
+    pic = models.ImageField(upload_to='images/%Y/%m/%d/')
     price = models.IntegerField()
     number = models.IntegerField()
     desc = models.CharField(max_length=1024)
