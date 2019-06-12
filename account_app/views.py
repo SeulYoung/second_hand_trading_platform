@@ -23,7 +23,7 @@ def index(request):
     if request.user.is_authenticated:
         is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
         is_seller = Seller.objects.filter(seller_id=request.user).first()
-        if is_seller.isActive == True:
+        if is_seller.isActive:
             return redirect('sellerhome')
         else:
             return render(request, 'index.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
