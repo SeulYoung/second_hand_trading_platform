@@ -28,5 +28,11 @@ def upload_commodity(request):
         desc = request.POST.get('desc')
         Commodity.objects.create(seller_id=seller, type=type, pic=pic, number=number, price=price,
                                  name=name, desc=desc)
-
         return redirect('sellerhome')
+
+
+def favorites(request):
+    return render(request, 'favorites.html')
+
+
+

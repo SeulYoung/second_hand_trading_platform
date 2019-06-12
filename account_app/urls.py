@@ -8,6 +8,6 @@ urlpatterns = [
     path('switch/', views.switch, name="switch"),
     path('logout/', views.logout, name="logout"),
     path('sellerhome/', views.sellerhome, name="sellerhome"),
-    path('favorites/', views.favorites, name="favorites"),
+
 
 ]

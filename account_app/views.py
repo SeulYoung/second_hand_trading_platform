@@ -106,5 +106,4 @@ def sellerhome(request):
 
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
 
-def favorites(request):
-    return render(request, 'favorites.html')
+
