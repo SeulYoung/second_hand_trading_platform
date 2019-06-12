@@ -230,7 +230,9 @@
                                 </div>
                             </div>
                             <div class="product-pic">
-                                <a href="#"><img src="{% static "images/product2.jpg" %}" title="product-name"/></a>
+                                {% for com in my_commodity %}
+                                <a href="#"><img src="{{ com.pic.url }}" title="product-name"/></a>
+                                {% endfor %}
                                 <p>
                                     <a href="#">
                                         <small>Nike</small>

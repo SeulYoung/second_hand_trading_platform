@@ -400,11 +400,13 @@
                 let hour = t.getHours();
                 let minute = t.getMinutes();
                 let sendTime = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
-                // let to_user = "wkz";
+                let from_user = judgeUser;
+                let to_user = "qqq";
                 chatSocket.send(JSON.stringify({
+                    'websocket_id': SocketString,
                     'message': message,
-                    'from_user': judgeUser,
-                    // 'to_user': to_user,
+                    'from_user': from_user,
+                    'to_user': to_user,
                     'time': sendTime,
                 }));
 
