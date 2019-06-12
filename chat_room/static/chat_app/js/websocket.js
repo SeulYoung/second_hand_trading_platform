@@ -2,15 +2,15 @@
 let roomName = "yyy";
 let judgeUser = document.getElementById("myname").innerHTML;
 // var chatSocket = new WebSocket('ws://' + window.location.host);
-// var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + roomName + '/');
-var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/yyy/');
+var SocketString = 'ws://' + window.location.host + '/ws/chat/' + 'yyy' + '/';
+var chatSocket = new WebSocket(SocketString);
 
 chatSocket.onmessage = function (e) {
     let data = JSON.parse(e.data);
     console.log(data);
 
-    // let type = data['type'];
-    // let to_user = data['to_user'];
+    let type = data['type'];
+    let to_user = data['to_user'];
     let from_user = data['from_user'];
     let message = data['message'];
 
@@ -47,11 +47,13 @@ document.querySelector('#chat-message-submit').onclick = function (e) {
     let hour = t.getHours();
     let minute = t.getMinutes();
     let sendTime = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
-    // let to_user="wkz";
+    let from_user=judgeUser;
+    let to_user="qqq";
     chatSocket.send(JSON.stringify({
+        'websocket_id': SocketString,
         'message': message,
-        'from_user': judgeUser,
-        // 'to_user': to_user,
+        'from_user': from_user,
+        'to_user': to_user,
         'time': sendTime,
     }));
 
