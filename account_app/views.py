@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.backends import ModelBackend
 from account_app.models import MyUser, Buyer, Seller
+from commodity_app.models import Commodity, Order
 from django.contrib import auth
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_protect
@@ -99,7 +100,10 @@ def switch(request):
 def sellerhome(request):
     is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
     is_seller = Seller.objects.filter(seller_id=request.user).first()
+    my_commodity = Commodity.objects.filter(seller_id=is_seller)
+    return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller,
+                                               'my_commodity': my_commodity})
+
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
 
-def favorites(request):
-    return render(request, 'favorites.html')
+
