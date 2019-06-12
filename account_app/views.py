@@ -103,3 +103,8 @@ def sellerhome(request):
     my_commodity = Commodity.objects.filter(seller_id=is_seller)
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller,
                                                'my_commodity': my_commodity})
+
+    return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
+
+def favorites(request):
+    return render(request, 'favorites.html')

@@ -101,19 +101,19 @@ img {
     max-width: 100%;
 }
 
-.loginWp{
+.loginWp {
     background: url(../images/white.png);
 }
 
 /*end reset*/
 body {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: #FFF;
-    background: url(../images/left_img.png), url(../images/right_img.png);
-    background-position: left top, right top;
-    background-repeat: no-repeat, no-repeat;
+    /*background: #FFF;*/
+    /*background: url(../images/left_img.png), url(../images/right_img.png);*/
+    /*background-position: left top, right top;*/
+    /*background-repeat: no-repeat, no-repeat;*/
+    background: url(../images/background.jpg) no-repeat;
 }
-
 
 /*----start-wrap----*/
 .wrap {
@@ -123,10 +123,10 @@ body {
 
 .top1 {
     background: url(../images/top_background2.png);
-    text-align:center;
+    text-align: center;
 }
 
-.megamenu{
+.megamenu {
     background: url(../images/top_background1.png);
 }
 
@@ -243,11 +243,11 @@ body {
 
 }
 
-.messageNmae{
+.messageNmae {
     color: #1e88e5;
 }
 
-.displayMessage{
+.displayMessage {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 400px;
@@ -556,6 +556,8 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 .content-left-bottom-grid1 {
     text-align: left;
     margin-bottom: 1.5em;
+    width:110px;
+    background: #cec3ca;
 }
 
 .product-grid-head li {
@@ -622,6 +624,7 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
+    background: #cec0c6;
 }
 
 .product-grid:hover {
@@ -633,9 +636,23 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
     margin-right: 0;
 }
 
+.product-pic {
+
+    width: 290px;
+    height: 290px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 30px;
+
+}
+
 .product-pic a img {
-    display: block;
-    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    /*display: block;*/
+    /*margin: auto;*/
 }
 
 .product-grid-head {
@@ -1203,7 +1220,7 @@ h2.resp-accordion:first-child {
     min-height: 700px;
 }
 
-.login-main h1,h2,h3 {
+.login-main h1, h2, h3 {
     color: #08080B;
     font-weight: 700;
     font-size: 1.2em;
