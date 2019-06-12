@@ -48,10 +48,10 @@
                 <ul>
                     {% if is_buyer or is_seller %}
                         {% if is_buyer.isActive == True %}
-                            <li><a href="#">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
+                            <li><a href="#" id="myname">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
                             <li><a href="/switch">切换为卖家</a></li>
                         {% else %}
-                            <li><a href="#">{{ is_seller.seller_id.username }}</a><span> </span></li>
+                            <li><a href="#" id="myname">{{ is_seller.seller_id.username }}</a><span> </span></li>
                             <li><a href="/switch">切换为买家</a></li>
                         {% endif %}
                         <li>
