@@ -132,6 +132,7 @@ body {
 
 .top-header {
     background: #08080B;
+    height: 32px;
 }
 
 .top-header-left {
@@ -143,8 +144,9 @@ body {
 .top-header-center {
     float: left;
     width: 80%;
-    padding: 0.25em;
-    padding: 0.4em;
+    height: 32px;
+    /*padding: 0.25em;*/
+    /*padding: 0.4em;*/
 }
 
 .top-header-right {
@@ -208,25 +210,29 @@ body {
 
 .top-header-center-alert-left {
     float: left;
-    width: 39%;
+    width: 38%;;
     text-align: right;
+    height: 32px;
 }
 
 .top-header-center-alert-right {
     float: right;
-    width: 60%;
+    width: 70%;
+    position: center;
 }
 
 .top-header-center-alert-left h3 {
     color: #FFF;
     font-weight: 600;
-    font-size: 0.85em;
+    font-size: 0.2em;
+    height: 32px;
 }
 
 .vticker li {
     color: #F06B6B;
-    font-size: 0.8em;
-    font-weight: 100;
+    font-size: 1.3em;
+    font-weight: 300;
+    height: 32px;
 }
 
 .top-header-right ul li {
@@ -2858,7 +2864,8 @@ span.mail a:hover {
 
     .top-header-center {
         width: 66%;
-        padding: 0.4em 0 0 0em;
+        padding: 0em 0 0 0em;
+
     }
 
     .product-info-cust {
