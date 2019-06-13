@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from account_app.models import Seller, Buyer
-from .models import Commodity, Order, Comment
+from .models import Commodity, Order, Comment, Favorites
 
 
 def details(request):
@@ -38,5 +38,14 @@ def upload_commodity(request):
 
 
 def favorites(request):
-    # if request.method == "POST":
-    return render(request, 'favorites.html')
+    buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    com_id = Favorites.objects.filter(buyer_id=buyer).first()
+    com_inf = Commodity.objects.get(commodity_id=com_id)
+    if com_inf:
+        isExit = True
+    else:
+        isExit = False
+
+    return render(request, 'favorites.html',
+                  {'name': com_inf.name, "price": com_inf.price, "img": com_inf.pic, "des": com_inf.desc,
+                   "judge": isExit})
