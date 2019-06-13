@@ -1,8 +1,6 @@
-// let roomName = document.getElementById("name").innerHTML;
-let roomName = "yyy";
 let judgeUser = document.getElementById("myname").innerHTML;
 // var chatSocket = new WebSocket('ws://' + window.location.host);
-var SocketString = 'ws://' + window.location.host + '/ws/chat/' + 'yyy' + '/';
+var SocketString = 'ws://' + window.location.host + '/ws/chat/' + judgeUser + '/';
 var chatSocket = new WebSocket(SocketString);
 
 chatSocket.onmessage = function (e) {
