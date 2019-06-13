@@ -615,7 +615,7 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 /*---start-rating----*/
 /*---start-product-grid----*/
 .product-grid {
-    width: 30.33%;
+    width: 29%;
     margin: 0 4% 4% 0;
     float: left;
     border: 1px solid #E9E9E9;
@@ -666,20 +666,25 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 }
 
 .product-pic p {
+    max-height: 80px;
     padding: 1em 1em 1em 1em;
     color: #D6D6D6;
 }
 
 .product-pic p span {
     color: #999;
-    font-size: 1.4em;
+    font-size: 0.5em;
+
+    display:block;
+    height: 18px;
+    overflow: hidden;
 
 }
 
 .product-pic p a {
     display: block;
     color: #2A2323;
-    font-size: 1em;
+    font-size: 0.875em;
 }
 
 .product-pic p a small {
