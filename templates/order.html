@@ -1,218 +1,111 @@
+{% extends 'base.html' %}
 
+{% block title %}璁㈠崟鍒楄〃{% endblock %}
+{% block head %}
+    {% include 'head.html' %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/upload_commodity.css' %}">
+    <script src="{% static 'js/upload_commodity.js' %}"></script>
+{% endblock %}
 
-<!doctype html>
-<html>
-<head>
-
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta charset="gbk">
-<meta name="data-spm" content="a1z09">
-<title>我的订单</title>
-    <link rel="stylesheet" href="//g.alicdn.com/??kg/global-util/1.0.6/index-min.css,kg/tb-nav/2.4.1/index-min.css">
-
-<!--[if !(IE 8)]><!-->
-<link rel="stylesheet" href="//g.alicdn.com/tp/bought/3.4.6/style.css"/>
-<!--<![endif]-->
-<!--[if IE 8]>
-<link charset="utf-8" rel="stylesheet" href="//g.alicdn.com/tp/bought/3.1.4/style.css" crossorigin />
-<![endif]-->
-</head>
-<body id="list-bought-items" class="bought  mytaobao-v1 " data-spm="2">
-	<style>
-	.div-a{ float:left;width:49%;border:1px solid #000}
-	.div-b{ float:left;width:49%;border:1px solid #000}
- .SCREEN1360 #page #content {
-width: 1190px!important;
-}
-</style>
-
-<!--[if lt IE 8]>
-<style>html,body{overflow:hidden;height:100%}</style>
-<div class="tb-ie-updater-layer"></div>
-<![endif]-->
-  <div id="page">
-
-
-    <link rel="stylesheet" href="//g.alicdn.com/tb/mtbframe/1.0.3/pages/home/base.css" />
-
-
-      <header class="mt-header" data-spm="a210b">
- <article>
- <div class="mt-logo">
- <a title="我的二手交易平台" ></a>
- </div>
- <nav class="mt-nav">
- <ul id="J_MtMainNav">
- <li >
- <a href="//i.taobao.com/my_taobao.htm?tracelog=mytaobaonavindex&nekot=1560074894345" data-spm="d1000352">首页</a>
- <i class="mt-arrow"></i>
- </li>
- <li class="J_MtNavSubTrigger">
- <a class="mt-nav-parent" href="//member1.taobao.com/member/fresh/account_security.htm?tracelog=mytaobaonavsetup&nekot=1560074894345" data-spm="d1000356">账户设置<i><em></em><s></s></i></a>
- <i class="mt-arrow"></i>
-
- </li>
- <li class="">
- <a class="mt-nav-parent" href="//msg.taobao.com/message/list.htm?tracelog=mytaobaonavmessage&nekot=1560074894345" data-spm="d1000357">消息</a>
- <i class="mt-arrow"></i>
-
- </li>
- </ul>
-   <div class="search" id="J_Search" role="search">
- <div class="search-panel search-sns-panel-field">
- <form target="_blank" action="//s.taobao.com/search" name="search" id="J_TSearchForm" class="search-panel-focused">
- <div class="search-button">
- <button class="btn-search" type="submit">搜 索</button>
- </div>
- <div class="search-panel-fields">
- <label for="q"></label>
- <input id="q" name="q" accesskey="s" autofocus="true" autocomplete="off" x-webkit-speech=""
- x-webkit-grammar="builtin:translate">
- </div>
- <input type="hidden" name="commend" value="all">
- <input type="hidden" name="ssid" value="s5-e" autocomplete="off">
- <input type="hidden" name="search_type" value="mall" autocomplete="off">
- <input type="hidden" name="sourceId" value="tb.index">
- <input type="hidden" name="area" value="c2c">
- <input type="hidden" name="spm" value="a1z02.1.6856637.d4910789">
- <!--[if lt IE 9]><s class="search-fix search-fix-panellt"></s><s class="search-fix search-fix-panellb"></s>
- <![endif]-->
- </form>
- </div>
- </div>
-   </nav>
- <a id="J_Nav_Side" title="展开导航"><em>&#61532;</em></a>
- </article>
-</header>
-
-
-
- <div id="content">
- <div id="mytaobao-panel" class="grid-c2">
- <div class="col-main" id="J_Col_Main">
-   <div style="margin-left:120px">
-
-   </div>
-
- </div>
- <div class="col-sub" id="J_Col_Sub" style="width:990px;height:auto;">
-   <!--<div id="J_EMS" style="width:0;height:0;float:1;"></div>-->
-<div style="float:left;width:20%;height:100%;"><aside class="mt-menu" id="J_MtSideMenu" >
-  <div class="mt-menu-tree" >
-    <dl class="mt-menu-item" data-spm="a2109">
-      <dt class="fs14">全部功能</dt>
-      <dd>
-        <a href="//cart.taobao.com/cart.htm?nekot=1470211439694" target="_blank" role="menuitem"
-          data-spm="d1000367">拓展功能1</a>
-      </dd>
-
-      <dd id="boughtShop">
-        <a href="//favorite.taobao.com/list_bought_shops_n.htm?itemtype=0&amp;nekot=1470211439694"
-          data-spm="d1000373">拓展功能2</a>
-      </dd>
-
-
-      <dd>
-        <a data-spm="d1000391" href="//www.taobao.com/markets/footmark/tbfoot" target="_blank" role="menuitem">拓展功能3</a>
-      </dd>
-      <dd>
-         <a href="//aliqin.tmall.com/flowwallet/index.htm" target="_blank" role="menuitem">拓展功能4</a>
-      </dd>
-    </dl>
-    <!---
-    <p class="hide J_RecentVisitPlaceholder"></p>
-    -->
-    <style></style>
-  </div>
-</aside></div>
-          <div class="container-fluid" style="float:right;width:80%;height:100%;overflow:auto;">
-        <div class="row-fluid">
-            <div class="span12">
-                <table class="table table-hover table-striped">
-                    <thead style="background-color: #828080;">
-                    <tr>
-                            <th>编号</th>
-                            <th>姓名</th>
-                            <th>学号</th>
-                            <th>性别</th>
-                            <th>出生日期</th>
-                            <th>联系方式</th>
-                            <th>班级</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% if info %}
-                        {% for key in info %}
-                            <tr style="cursor:pointer">
-                                    <td onclick="">{{ key.no }}</td>
-                                    <td onclick="info({{ key.sno_id }}, 'table_student')">{{ key.sname }}</td>
-                                    <td onclick="info({{ key.sno_id }}, 'table_student')">{{ key.sno_id }}</td>
-                                    <td onclick="info({{ key.sno_id }}, 'table_student')">{{ key.sex }}</td>
-                                    <td onclick="info({{ key.sno_id }}, 'table_student')">{{ key.sbirthday }}</td>
-                                    <td onclick="info({{ key.sno_id }}, 'table_student')">{{ key.phone }}</td>
-                                    <td onclick="info({{ key.sno_id }}, 'table_student')">{{ key.classname_id }}</td>
-                                    {% if user_roll == 'edu' %}
-                                    {% endif %}
-                            </tr>
-                        {% endfor %}
-                    {% endif %}
-                    </tbody>
-                </table>
-            </div>
+{% block body %}
+    {% include 'bar.html' %}
+    <!---start-wrap---->
+    <!--- start-content---->
+    <div class="wrap" style="margin-left: 20%">
+        <div class="price-rage">
+            <h3 style="font-size: 1.25em">鎴戠殑璁㈠崟</h3>
         </div>
     </div>
-   </div>
- </div>
- </div>
- </div>
+    <div class="content">
+        <div class="wrap">
+            <div class="content-right" style="float: left;margin-left: 5%">
+                {% if judge %}
+                    <div class="product-grids">
+                        <!--- start-rate---->
+                        <script src="{% static "js/jstarbox.js" %}"></script>
+                        <link rel="stylesheet" href="{% static "css/jstarbox.css" %}" type="text/css" media="screen"
+                              charset="utf-8"/>
+                        <script type="text/javascript">
+                            jQuery(function () {
+                                jQuery('.starbox').each(function () {
+                                    var starbox = jQuery(this);
+                                    starbox.starbox({
+                                        average: starbox.attr('data-start-value'),
+                                        changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+                                        ghosting: starbox.hasClass('ghosting'),
+                                        autoUpdateAverage: starbox.hasClass('autoupdate'),
+                                        buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+                                        stars: starbox.attr('data-star-count') || 5
+                                    }).bind('starbox-value-changed', function (event, value) {
+                                        if (starbox.hasClass('random')) {
+                                            var val = Math.random();
+                                            starbox.next().text(' ' + val);
+                                            return val;
+                                        }
+                                    })
+                                });
+                            });
+                        </script>
+                        <!---//End-rate---->
+                        <!---caption-script---->
+                        <!---//caption-script---->
+                        {% for com in order_list %}
+                            <form action="details/" method="post" id="testForm{{ com.commodity_id.commodity_id }}">
+                                {% csrf_token %}
+                                <input type="hidden" name="commodity_id" value="1">
+                                <div onClick="testForm{{ com.commodity_id.commodity_id }}.submit()" class="product-grid fade">
+                                    <div class="product-grid-head">
+                                        <ul class="grid-social">
+                                            <li><a class="facebook" href="#"><span> </span></a></li>
+                                            <li><a class="twitter" href="#"><span> </span></a></li>
+                                            <li><a class="googlep" href="#"><span> </span></a></li>
+                                            <div class="clear"></div>
+                                        </ul>
+                                        <div class="block">
+                                            <div class="starbox small ghosting"></div>
+                                            <span> (46)</span>
+                                        </div>
+                                    </div>
+                                    <div class="product-pic">
+                                        <div class="product-block">
+                                            <a href="#"><img src="{{ com.commodity_id.pic.url }}" width="158" height="100"
+                                                             title="product-name"/></a>
+                                        </div>
+                                        <p style="font-size: 1.5em">
+                                            <a href="#">
+                                                {{ com.commodity_id.name }}
+                                            </a>
+                                            <span>{{ com.commodity_id.desc }}</span>
+                                        </p>
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="product-info-cust">
+                                            <a href="#">Details</a>
+                                        </div>
+                                        <div class="product-info-price">
+                                            <a href="details.html">{{ com.commodity_id.price }} 元</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="more-product-info">
+                                        <span> </span>
+                                    </div>
+                                </div>
+                            </form>
+                        {% endfor %}
+                        <div class="clear"></div>
+                    </div>
+                {% else %}
+                    <li>鎮ㄨ繕娌℃湁璐拱杩囧晢鍝� <label> 缃戠綏澶╀笅锛岃喘灏界簿褰┿��</label></li>
+                {% endif %}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
 
-
-    <!--<div id="light" class="white_content" style="top: 15%; width: auto; height: auto;">添加信息-->
-        <!--<a style="float: right;" href="javascript:void(0)"-->
-           <!--onclick="document.getElementById('light').style.display='none';-->
-               <!--document.getElementById('fade').style.display='none'">关闭</a>-->
-        <!--<div>-->
-            <!--<div class="wrapper" style="width: auto;">-->
-                <!--<div class="infoBox" style="height: 100%;">-->
-                    <!--<div class="infoBoxCenter">-->
-                            <!--<p><label>姓名(*)：</label>-->
-                                <!--<input name='sname' id='sname' type="text" class="infoLabel" required="required"-->
-                                       <!--autocomplete="off" placeholder="" value=""/>-->
-                            <!--</p>-->
-                            <!--<p><label for="sno">学号(*)：</label>-->
-                                <!--<select id="sno" class="infoLabel">-->
-                                    <!--{% for key in user_no %}-->
-                                        <!--<option value="{{ key.uid }}">{{ key.uid }}</option>-->
-                                    <!--{% endfor %}-->
-                                <!--</select>-->
-                            <!--</p>-->
-                            <!--<p><label>性别：</label>-->
-                                <!--<input name="sex" id='sex' type="text" class="infoLabel" required="required"-->
-                                       <!--autocomplete="off" placeholder="" value=""/>-->
-                            <!--</p>-->
-                            <!--<p><label>出生日期：</label>-->
-                                <!--<input name="sbirthday" id='sbirthday' type="date" class="infoLabel"-->
-                                       <!--required="required" autocomplete="off" placeholder="" value=""/>-->
-                            <!--</p>-->
-                            <!--<p><label>联系方式：</label>-->
-                                <!--<input name="phone" id='phone' type="text" class="infoLabel" required="required"-->
-                                       <!--autocomplete="off" placeholder="" value=""/>-->
-                            <!--</p>-->
-                            <!--<p><label for="classname">班级(*)：</label>-->
-                                <!--<select id="classname" class="infoLabel">-->
-                                    <!--{% for key in class_no %}-->
-                                        <!--<option value="{{ key.classname }}">{{ key.classname }}&#45;&#45;{{ key.teacher_name }}</option>-->
-                                    <!--{% endfor %}-->
-                                <!--</select>-->
-                            <!--</p>-->
-                    <!--</div>-->
-                    <!--<p class="btn_group">-->
-                        <!--<a class="btn btn-primary" onclick="add_info('{{ type }}')" style="margin-right: 10px;">确定</a>-->
-                    <!--</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+    <!--- //End-content---->
+    <!---//End-wrap---->
+    </div>
     <div id="fade" class="black_overlay"></div>
-</body>
-</html>
+    {% include 'footer.html' %}
+{% endblock %}

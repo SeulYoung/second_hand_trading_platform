@@ -142,7 +142,7 @@
                     <!---caption-script---->
                     <!---//caption-script---->
                 {% for order in my_order %}
-                    <form action="details/" method="post" id="testForm{{ order.order_id }}">
+                    <form action="/details/" method="post" id="testForm{{ order.order_id }}">
                         {% csrf_token %}
                         <input type="hidden" name="commodity_id" value="1">
                         <div onClick="testForm{{ order.order_id }}.submit()" class="product-grid fade">
