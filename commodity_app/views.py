@@ -39,13 +39,12 @@ def upload_commodity(request):
 
 def favorites(request):
     buyer = Buyer.objects.filter(buyer_id=request.user).first()
-    com_id = Favorites.objects.filter(buyer_id=buyer).first()
-    com_inf = Commodity.objects.get(commodity_id=com_id)
+    com_id = Favorites.objects.filter(buyer_id=buyer.buyer_id_id).first()
+    com_inf = Commodity.objects.filter(commodity_id=com_id.commodity_id_id)
     if com_inf:
-        isExit = True
+        is_exit = True
     else:
-        isExit = False
+        is_exit = False
 
     return render(request, 'favorites.html',
-                  {'name': com_inf.name, "price": com_inf.price, "img": com_inf.pic, "des": com_inf.desc,
-                   "judge": isExit})
+                  {'fav_commodity': com_inf, "judge": is_exit})
