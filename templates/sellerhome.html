@@ -55,10 +55,10 @@
                     <!---caption-script---->
                     <!---//caption-script---->
                     {% for com in my_commodity %}
-                    <form action="/details/" method="post" id="testForm">
+                    <form action="/details/" method="post" id="testForm{{ com.commodity_id }}">
                         {% csrf_token %}
                         <input type="hidden" name="commodity_id" value="1">
-                        <div onClick="testForm.submit()" class="product-grid fade">
+                        <div onClick="testForm{{ com.commodity_id }}.submit()" class="product-grid fade">
                             <div class="product-grid-head">
                                 <ul class="grid-social">
                                     <li><a class="facebook" href="#"><span> </span></a></li>
@@ -142,10 +142,10 @@
                     <!---caption-script---->
                     <!---//caption-script---->
                 {% for order in my_order %}
-                    <form action="details/" method="post" id="testForm">
+                    <form action="details/" method="post" id="testForm{{ order.order_id }}">
                         {% csrf_token %}
                         <input type="hidden" name="commodity_id" value="1">
-                        <div onClick="testForm.submit()" class="product-grid fade">
+                        <div onClick="testForm{{ order.order_id }}.submit()" class="product-grid fade">
                             <div class="product-grid-head">
                                 <ul class="grid-social">
                                     <li><a class="facebook" href="#"><span> </span></a></li>
