@@ -55,7 +55,7 @@
                     <!---caption-script---->
                     <!---//caption-script---->
                     {% for com in my_commodity %}
-                    <form action="details/" method="post" id="testForm">
+                    <form action="/details/" method="post" id="testForm">
                         {% csrf_token %}
                         <input type="hidden" name="commodity_id" value="1">
                         <div onClick="testForm.submit()" class="product-grid fade">
