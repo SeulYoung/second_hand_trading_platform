@@ -625,6 +625,7 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
     -moz-transition: 0.5s all;
     -o-transition: 0.5s all;
     background: #cec0c6;
+
 }
 
 .product-grid:hover {
@@ -638,21 +639,26 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 
 .product-pic {
 
-    width: 290px;
-    height: 290px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: auto;
+    margin: 10px;
+}
 
-    margin: 30px;
+.product-pic a{
 
 }
 
-.product-pic a img {
-    max-width: 100%;
-    max-height: 100%;
-    /*display: block;*/
-    /*margin: auto;*/
+.product-block{
+    width: 100%;
+    height: 350px;
+    display:flex;
+	align-items:center;
+	justify-content:center;
+}
+
+.product-block a img {
+
+    width:100%;
+	height:auto;
 }
 
 .product-grid-head {
@@ -667,7 +673,7 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 .product-pic p span {
     color: #999;
     font-size: 0.8em;
-    font-size: 0.7em;
+
 }
 
 .product-pic p a {

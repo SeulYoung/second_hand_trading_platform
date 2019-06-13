@@ -54,21 +54,21 @@
                     <a href="#slide1">
                         <img src="/static/images/slide-1.jpg" alt=""/>
                     </a>
-{#                    <div class="slider-detils">#}
-{#                        <h3>MENS FOOT BALL <label>BOOTS</label></h3>#}
-{#                        <span>Stay true to your team all day, every day, game day.</span>#}
-{#                        <a class="slide-btn" href="details.html"> Shop Now</a>#}
-{#                    </div>#}
+                    {#                    <div class="slider-detils">#}
+                    {#                        <h3>MENS FOOT BALL <label>BOOTS</label></h3>#}
+                    {#                        <span>Stay true to your team all day, every day, game day.</span>#}
+                    {#                        <a class="slide-btn" href="details.html"> Shop Now</a>#}
+                    {#                    </div>#}
                 </li>
                 <li>
                     <a href="#slide2">
                         <img src="/static/images/slide-2.jpg" alt=""/>
                     </a>
-{#                    <div class="slider-detils">#}
-{#                        <h3>MENS FOOT BALL <label>BOOTS</label></h3>#}
-{#                        <span>Stay true to your team all day, every day, game day.</span>#}
-{#                        <a class="slide-btn" href="details.html"> Shop Now</a>#}
-{#                    </div>#}
+                    {#                    <div class="slider-detils">#}
+                    {#                        <h3>MENS FOOT BALL <label>BOOTS</label></h3>#}
+                    {#                        <span>Stay true to your team all day, every day, game day.</span>#}
+                    {#                        <a class="slide-btn" href="details.html"> Shop Now</a>#}
+                    {#                    </div>#}
                 </li>
                 <li>
                     <a href="#slide3">
@@ -168,20 +168,32 @@
                         {% csrf_token %}
                         <input type="hidden" name="commodity_id" value="1">
                         <div onClick="testForm.submit()" class="product-grid fade">
-                            <div class="product-grid-head">
-                                <ul class="grid-social">
-                                    <li><a class="facebook" href="#"><span> </span></a></li>
-                                    <li><a class="twitter" href="#"><span> </span></a></li>
-                                    <li><a class="googlep" href="#"><span> </span></a></li>
-                                    <div class="clear"></div>
-                                </ul>
-                                <div class="block">
-                                    <div class="starbox small ghosting"></div>
-                                    <span> (46)</span>
-                                </div>
-                            </div>
+                            {#                            <div class="product-grid-head">#}
+                            {#                                <ul class="grid-social">#}
+                            {#                                    <li><a class="facebook" href="#"><span> </span></a></li>#}
+                            {#                                    <li><a class="twitter" href="#"><span> </span></a></li>#}
+                            {#                                    <li><a class="googlep" href="#"><span> </span></a></li>#}
+                            {#                                    <div class="clear"></div>#}
+                            {#                                </ul>#}
+                            {#                                <div class="block">#}
+                            {#                                    <div class="starbox small ghosting"></div>#}
+                            {#                                    <span> (46)</span>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
                             <div class="product-pic">
-                                <a href="#"><img src="{% static "images/product1.jpg" %}" title="product-name"/></a>
+                                <div class="product-block">
+                                    <a href="#"><img src="{% static "images/product1.jpg" %}" title="product-name"/></a>
+                                </div>
+                                >
+
+                                <p>
+                                    <a href="#">
+                                        <small>Nike</small>
+                                        HYPERVENOM
+                                        <small>Phantom</small>
+                                        FG</a>
+                                    <span>Men's Firm-Ground Football Boot</span>
+                                </p>
                             </div>
                             <div class="product-info">
                                 <div class="product-info-cust">
@@ -198,28 +210,31 @@
                         </div>
                     </form>
                     <div onClick="location.href='details.html';" class="product-grid fade">
-                        <div class="product-grid-head">
-                            <ul class="grid-social">
-                                <li><a class="facebook" href="#"><span> </span></a></li>
-                                <li><a class="twitter" href="#"><span> </span></a></li>
-                                <li><a class="googlep" href="#"><span> </span></a></li>
-                                <div class="clear"></div>
-                            </ul>
-                            <div class="block">
-                                <div class="starbox small ghosting"></div>
-                                <span> (46)</span>
-                            </div>
-                        </div>
+                        {#                        <div class="product-grid-head">#}
+                        {#                            <ul class="grid-social">#}
+                        {#                                <li><a class="facebook" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="twitter" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="googlep" href="#"><span> </span></a></li>#}
+                        {#                                <div class="clear"></div>#}
+                        {#                            </ul>#}
+                        {#                            <div class="block">#}
+                        {#                                <div class="starbox small ghosting"></div>#}
+                        {#                                <span> (46)</span>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
                         <div class="product-pic">
-                            <a href="#"><img src="/static/images/product2.jpg" title="product-name"/></a>
-{#                            <p>#}
-{#                                <a href="#">#}
-{#                                    <small>Nike</small>#}
-{#                                    HYPERVENOM#}
-{#                                    <small>Phantom</small>#}
-{#                                    FG</a>#}
-{#                                <span>Men's Firm-Ground Football Boot</span>#}
-{#                            </p>#}
+                            <div class="product-block">
+                                <a href="#"><img src="/static/images/product2.jpg" title="product-name"/></a>
+                            </div>
+                            >
+                            <p>
+                                <a href="#">
+                                    <small>Nike</small>
+                                    HYPERVENOM
+                                    <small>Phantom</small>
+                                    FG</a>
+                                <span>Men's Firm-Ground Football Boot</span>
+                            </p>
                         </div>
                         <div class="product-info">
                             <div class="product-info-cust">
@@ -235,28 +250,31 @@
                         </div>
                     </div>
                     <div onClick="location.href='details.html';" class="product-grid fade last-grid">
-                        <div class="product-grid-head">
-                            <ul class="grid-social">
-                                <li><a class="facebook" href="#"><span> </span></a></li>
-                                <li><a class="twitter" href="#"><span> </span></a></li>
-                                <li><a class="googlep" href="#"><span> </span></a></li>
-                                <div class="clear"></div>
-                            </ul>
-                            <div class="block">
-                                <div class="starbox small ghosting"></div>
-                                <span> (46)</span>
-                            </div>
-                        </div>
+                        {#                        <div class="product-grid-head">#}
+                        {#                            <ul class="grid-social">#}
+                        {#                                <li><a class="facebook" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="twitter" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="googlep" href="#"><span> </span></a></li>#}
+                        {#                                <div class="clear"></div>#}
+                        {#                            </ul>#}
+                        {#                            <div class="block">#}
+                        {#                                <div class="starbox small ghosting"></div>#}
+                        {#                                <span> (46)</span>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
                         <div class="product-pic">
-                            <a href="#"><img src="/static/images/product3.jpg" title="product-name"/></a>
-{#                            <p>#}
-{#                                <a href="#">#}
-{#                                    <small>Nike</small>#}
-{#                                    HYPERVENOM#}
-{#                                    <small>Phantom</small>#}
-{#                                    FG</a>#}
-{#                                <span>Men's Firm-Ground Football Boot</span>#}
-{#                            </p>#}
+                            <div class="product-block">
+                                <a href="#"><img src="/static/images/product3.jpg" title="product-name"/></a>
+                            </div>
+                            >
+                            <p>
+                                <a href="#">
+                                    <small>Nike</small>
+                                    HYPERVENOM
+                                    <small>Phantom</small>
+                                    FG</a>
+                                <span>Men's Firm-Ground Football Boot</span>
+                            </p>
                         </div>
                         <div class="product-info">
                             <div class="product-info-cust">
@@ -272,28 +290,31 @@
                         </div>
                     </div>
                     <div onClick="location.href='details.html';" class="product-grid fade">
-                        <div class="product-grid-head">
-                            <ul class="grid-social">
-                                <li><a class="facebook" href="#"><span> </span></a></li>
-                                <li><a class="twitter" href="#"><span> </span></a></li>
-                                <li><a class="googlep" href="#"><span> </span></a></li>
-                                <div class="clear"></div>
-                            </ul>
-                            <div class="block">
-                                <div class="starbox small ghosting"></div>
-                                <span> (46)</span>
-                            </div>
-                        </div>
+                        {#                        <div class="product-grid-head">#}
+                        {#                            <ul class="grid-social">#}
+                        {#                                <li><a class="facebook" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="twitter" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="googlep" href="#"><span> </span></a></li>#}
+                        {#                                <div class="clear"></div>#}
+                        {#                            </ul>#}
+                        {#                            <div class="block">#}
+                        {#                                <div class="starbox small ghosting"></div>#}
+                        {#                                <span> (46)</span>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
                         <div class="product-pic">
-                            <a href="#"><img src="/static/images/product4.jpg" title="product-name"/></a>
-{#                            <p>#}
-{#                                <a href="#">#}
-{#                                    <small>Nike</small>#}
-{#                                    HYPERVENOM#}
-{#                                    <small>Phantom</small>#}
-{#                                    FG</a>#}
-{#                                <span>Men's Firm-Ground Football Boot</span>#}
-{#                            </p>#}
+                            <div class="product-block">
+                                <a href="#"><img src="/static/images/product4.jpg" title="product-name"/></a>
+                            </div>
+                            >
+                            <p>
+                                <a href="#">
+                                    <small>Nike</small>
+                                    HYPERVENOM
+                                    <small>Phantom</small>
+                                    FG</a>
+                                <span>Men's Firm-Ground Football Boot</span>
+                            </p>
                         </div>
                         <div class="product-info">
                             <div class="product-info-cust">
@@ -309,28 +330,31 @@
                         </div>
                     </div>
                     <div onClick="location.href='details.html';" class="product-grid fade">
-                        <div class="product-grid-head">
-                            <ul class="grid-social">
-                                <li><a class="facebook" href="#"><span> </span></a></li>
-                                <li><a class="twitter" href="#"><span> </span></a></li>
-                                <li><a class="googlep" href="#"><span> </span></a></li>
-                                <div class="clear"></div>
-                            </ul>
-                            <div class="block">
-                                <div class="starbox small ghosting"></div>
-                                <span> (46)</span>
-                            </div>
-                        </div>
+                        {#                        <div class="product-grid-head">#}
+                        {#                            <ul class="grid-social">#}
+                        {#                                <li><a class="facebook" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="twitter" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="googlep" href="#"><span> </span></a></li>#}
+                        {#                                <div class="clear"></div>#}
+                        {#                            </ul>#}
+                        {#                            <div class="block">#}
+                        {#                                <div class="starbox small ghosting"></div>#}
+                        {#                                <span> (46)</span>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
                         <div class="product-pic">
-                            <a href="#"><img src="/static/images/product5.jpg" title="product-name"/></a>
-{#                            <p>#}
-{#                                <a href="#">#}
-{#                                    <small>Nike</small>#}
-{#                                    HYPERVENOM#}
-{#                                    <small>Phantom</small>#}
-{#                                    FG</a>#}
-{#                                <span>Men's Firm-Ground Football Boot</span>#}
-{#                            </p>#}
+                            <div class="product-block">
+                                <a href="#"><img src="/static/images/product5.jpg" title="product-name"/></a>
+                            </div>
+                            >
+                            <p>
+                                <a href="#">
+                                    <small>Nike</small>
+                                    HYPERVENOM
+                                    <small>Phantom</small>
+                                    FG</a>
+                                <span>Men's Firm-Ground Football Boot</span>
+                            </p>
                         </div>
                         <div class="product-info">
                             <div class="product-info-cust">
@@ -346,28 +370,31 @@
                         </div>
                     </div>
                     <div onClick="location.href='details.html';" class="product-grid fade last-grid">
-                        <div class="product-grid-head">
-                            <ul class="grid-social">
-                                <li><a class="facebook" href="#"><span> </span></a></li>
-                                <li><a class="twitter" href="#"><span> </span></a></li>
-                                <li><a class="googlep" href="#"><span> </span></a></li>
-                                <div class="clear"></div>
-                            </ul>
-                            <div class="block">
-                                <div class="starbox small ghosting"></div>
-                                <span> (46)</span>
-                            </div>
-                        </div>
+                        {#                        <div class="product-grid-head">#}
+                        {#                            <ul class="grid-social">#}
+                        {#                                <li><a class="facebook" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="twitter" href="#"><span> </span></a></li>#}
+                        {#                                <li><a class="googlep" href="#"><span> </span></a></li>#}
+                        {#                                <div class="clear"></div>#}
+                        {#                            </ul>#}
+                        {#                            <div class="block">#}
+                        {#                                <div class="starbox small ghosting"></div>#}
+                        {#                                <span> (46)</span>#}
+                        {#                            </div>#}
+                        {#                        </div>#}
                         <div class="product-pic">
-                            <a href="#"><img src="/static/images/product6.jpg" title="product-name"/></a>
-{#                            <p>#}
-{#                                <a href="#">#}
-{#                                    <small>Nike</small>#}
-{#                                    HYPERVENOM#}
-{#                                    <small>Phantom</small>#}
-{#                                    FG</a>#}
-{#                                <span>Men's Firm-Ground Football Boot</span>#}
-{#                            </p>#}
+                            <div class="product-block">
+                                <a href="#"><img src="/static/images/product6.jpg" title="product-name"/></a>
+                            </div>
+                            >
+                            <p>
+                                <a href="#">
+                                    <small>Nike</small>
+                                    HYPERVENOM
+                                    <small>Phantom</small>
+                                    FG</a>
+                                <span>Men's Firm-Ground Football Boot</span>
+                            </p>
                         </div>
                         <div class="product-info">
                             <div class="product-info-cust">
