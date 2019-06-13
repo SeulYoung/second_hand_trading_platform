@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from chat_room.views import get_new_message_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account_app.urls')),
     path('', include('chat_room.urls')),
-    path('', include('commodity_app.urls'))
+    path('', include('commodity_app.urls')),
+    path('NewMessage/', get_new_message_list),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
