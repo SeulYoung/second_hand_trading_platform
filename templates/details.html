@@ -131,8 +131,33 @@
                                         })
                                     </script>
                                 </ul>
-                                <input type="button" value="加入收藏夹"/>
-                                <input type="button" value="立即购买"/>
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#favor_btn").click(function () {
+                                            alert("添加成功！");
+                                        })
+                                    })
+                                </script>
+                                <form method="post" id="favor_form" target="nm_iframe">
+                                    <input type="hidden" name="commodity_id" value="{{ commodity.commodity_id }}">
+                                    <input type="hidden" name="favorite">
+                                    <input type="button" id="favor_btn" onclick="favor_form.submit()" value="加入收藏夹"/>
+                                </form>
+                                <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#buy_btn").click(function () {
+                                            var form = $("<form action=\"/buy/\" method=\"post\"></form>");
+                                            var input1 = $("<input type=\"hidden\" name=\"commodity_id\" value=\"{{ commodity.commodity_id }}\">");
+                                            var input2 = $("<input type=\"hidden\" name=\"num\" value=\"" + $("#num_select").val() + "\">");
+                                            form.append(input1);
+                                            form.append(input2);
+                                            form.appendTo("body");
+                                            form.submit();
+                                        })
+                                    })
+                                </script>
+                                <input type="button" id="buy_btn" value="立即购买"/>
                                 <ul class="product-share">
                                     <h3>分享商品：</h3>
                                     <ul>

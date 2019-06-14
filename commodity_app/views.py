@@ -7,29 +7,38 @@ from .models import Commodity, Order, Comment, Favorites
 
 def details(request):
     if request.method == "POST":
-        is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
-        is_seller = Seller.objects.filter(seller_id=request.user).first()
-        commodity_id = request.POST.get("commodity_id")
-        commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
+        if "favorite" in request.POST:
+            try:
+                commodity_id = request.POST.get("commodity_id")
+                Favorites.objects.create(buyer_id=request.user, commodity_id=commodity_id)
+            except Exception as e:
+                print(e)
+        else:
+            is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+            is_seller = Seller.objects.filter(seller_id=request.user).first()
+            commodity_id = request.POST.get("commodity_id")
+            commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
 
-        orders = Order.objects.filter(commodity_id=commodity_id)
-        comments = []
-        for order in orders:
-            buyer = Buyer.objects.filter(buyer_id=order.buyer_id).first()
-            comment = Comment.objects.filter(order_id=order.order_id).first()
-            comments.append(buyer.nickName + ":\n" + comment.content)
-        similar_commodities = Commodity.objects.filter(type=commodity.type)
-        return render(request, "details.html", {"commodity": commodity,
-                                                "comments": comments,
-                                                "similar_commodities": similar_commodities,
-                                                'is_buyer': is_buyer, 'is_seller': is_seller})
+            orders = Order.objects.filter(commodity_id=commodity_id)
+            comments = []
+            for order in orders:
+                buyer = Buyer.objects.filter(buyer_id=order.buyer_id).first()
+                comment = Comment.objects.filter(order_id=order.order_id).first()
+                comments.append(buyer.nickName + ":\n" + comment.content)
+            similar_commodities = Commodity.objects.filter(type=commodity.type)
+            return render(request, "details.html", {"commodity": commodity,
+                                                    "comments": comments,
+                                                    "similar_commodities": similar_commodities,
+                                                    'is_buyer': is_buyer, 'is_seller': is_seller})
 
 
 def buy(request):
-    if request.POST == "POST":
+    if request.method == "POST":
         commodity_id = request.POST.get("commodity_id")
         num = request.POST.get("num")
-        return render(request, "buy.html")
+        commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
+        total_price = int(num) * commodity.price
+        return render(request, "buy.html", {"commodity": commodity, "num": num, "total_price": total_price})
 
 
 @csrf_exempt
