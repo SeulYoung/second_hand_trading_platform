@@ -1,5 +1,4 @@
 let judgeUser = document.getElementById("myname").innerHTML;
-// var chatSocket = new WebSocket('ws://' + window.location.host);
 var SocketString = 'ws://' + window.location.host + '/ws/chat/' + judgeUser + '/';
 var chatSocket = new WebSocket(SocketString);
 
