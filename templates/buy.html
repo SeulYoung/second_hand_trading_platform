@@ -125,8 +125,12 @@
                                 <script>
                                     $(document).ready(function () {
                                         $("#buy_btn").click(function () {
+                                            var form = $("<form action=\"/create_order/\" method=\"post\"></form>");
+                                            var input1 = $("<input type=\"hidden\" name=\"commodity_id\" value=\"{{ commodity.commodity_id }}\">");
+                                            form.append(input1);
+                                            form.appendTo("body");
+                                            form.submit();
                                             alert("付款成功！\n为您返回上一页面。");
-                                            history.back();
                                         })
                                     })
                                 </script>

@@ -10,7 +10,12 @@ def details(request):
         if "favorite" in request.POST:
             try:
                 commodity_id = request.POST.get("commodity_id")
-                Favorites.objects.create(buyer_id=request.user, commodity_id=commodity_id)
+                buyer = Buyer.objects.filter(buyer_id=request.user).first()
+                commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
+
+                favorite = Favorites.objects.filter(buyer_id=buyer, commodity_id=commodity)
+                if not favorite:
+                    Favorites.objects.create(buyer_id=buyer, commodity_id=commodity)
             except Exception as e:
                 print(e)
         else:
@@ -22,9 +27,10 @@ def details(request):
             orders = Order.objects.filter(commodity_id=commodity_id)
             comments = []
             for order in orders:
-                buyer = Buyer.objects.filter(buyer_id=order.buyer_id).first()
-                comment = Comment.objects.filter(order_id=order.order_id).first()
-                comments.append(buyer.nickName + ":\n" + comment.content)
+                buyer = Buyer.objects.filter(buyer_id=order.buyer_id.buyer_id).first()
+                comment = Comment.objects.filter(order_id=order).first()
+                if comment:
+                    comments.append(buyer.nickName + ":\n" + comment.content)
             similar_commodities = Commodity.objects.filter(type=commodity.type)
             return render(request, "details.html", {"commodity": commodity,
                                                     "comments": comments,
@@ -36,9 +42,37 @@ def buy(request):
     if request.method == "POST":
         commodity_id = request.POST.get("commodity_id")
         num = request.POST.get("num")
+
+        is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+        is_seller = Seller.objects.filter(seller_id=request.user).first()
         commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
         total_price = int(num) * commodity.price
-        return render(request, "buy.html", {"commodity": commodity, "num": num, "total_price": total_price})
+        return render(request, "buy.html", {"commodity": commodity, "num": num, "total_price": total_price,
+                                            'is_buyer': is_buyer, 'is_seller': is_seller})
+
+
+def create_order(request):
+    if request.method == "POST":
+        commodity_id = request.POST.get("commodity_id")
+        buyer = Buyer.objects.filter(buyer_id=request.user).first()
+        commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
+        Order.objects.create(buyer_id=buyer, commodity_id=commodity, status="已付款")
+
+        is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+        is_seller = Seller.objects.filter(seller_id=request.user).first()
+        commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
+        orders = Order.objects.filter(commodity_id=commodity_id)
+        comments = []
+        for order in orders:
+            buyer = Buyer.objects.filter(buyer_id=order.buyer_id.buyer_id).first()
+            comment = Comment.objects.filter(order_id=order).first()
+            if comment:
+                comments.append(buyer.nickName + ":\n" + comment.content)
+        similar_commodities = Commodity.objects.filter(type=commodity.type)
+        return render(request, "details.html", {"commodity": commodity,
+                                                "comments": comments,
+                                                "similar_commodities": similar_commodities,
+                                                'is_buyer': is_buyer, 'is_seller': is_seller})
 
 
 @csrf_exempt
