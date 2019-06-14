@@ -25,6 +25,13 @@ def details(request):
                                                 'is_buyer': is_buyer, 'is_seller': is_seller})
 
 
+def buy(request):
+    if request.POST == "POST":
+        commodity_id = request.POST.get("commodity_id")
+        num = request.POST.get("num")
+        return render(request, "buy.html")
+
+
 @csrf_exempt
 def upload_commodity(request):
     if request.method == 'POST':
