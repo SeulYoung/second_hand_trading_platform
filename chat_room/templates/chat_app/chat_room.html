@@ -25,12 +25,12 @@
 
 
 {% block body %}
-
+    <p id="web" style="display: none">{{ websocket_id }}</p>
     <div class="room_wrapper">
         <div class="room_container">
             <div class="right">
                 <div class="top">
-                    <span style="flex: 1;"><span class="name">{{ room_name }}</span></span>
+                    <span style="flex: 1;"><span class="name" id="seller">{{ room_name }}</span></span>
                 </div>
                 <div class="chat" data-chat="person1">
                     <div class="chat_box" id="chat_box">
