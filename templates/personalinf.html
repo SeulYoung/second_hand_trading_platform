@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>information</title>
+</head>
+<style type="text/css">
+    h1{
+        font-size:30px;
+        color:#930;
+        text-align:center;
+    }
+</style>
+<body>
+    <h1>个人信息中心</h1>
+<div class="personal">
+    <p>用户名：{{ member.username }}</p>
+    <p>邮箱：{{ member.email }}</p>
+    <p>电话：{{ member.phone }}</p>
+    <p>性别：{{ member.sex }}</p>
+</div>
+    <form method="post">
+        {% csrf_token %}
+<button type="submit" value="修改"></button>
+    </form>
+</body>
+</html>
