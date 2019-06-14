@@ -52,7 +52,7 @@
                         {% for com in order_list %}
                             <form action="details/" method="post" id="testForm{{ com.commodity_id.commodity_id }}">
                                 {% csrf_token %}
-                                <input type="hidden" name="commodity_id" value="{{ com.order_id }}">
+                                <input type="hidden" name="commodity_id" value="1">
                                 <div onClick="testForm{{ com.commodity_id.commodity_id }}.submit()" class="product-grid fade">
                                     <div class="product-grid-head">
                                         <ul class="grid-social">
@@ -75,7 +75,7 @@
                                             <a href="#">
                                                 {{ com.commodity_id.name }}
                                             </a>
-                                            <span>{{ com.status }}</span>
+                                            <span>{{ com.commodity_id.desc }}</span>
                                         </p>
                                     </div>
                                     <div class="product-info">
@@ -83,7 +83,7 @@
                                             <a href="#">Details</a>
                                         </div>
                                         <div class="product-info-price">
-                                            <a href="details.html">{{ com.commodity_id.price }} 元</a>
+                                            <a href="details.html">{{ com.commodity_id.price }} Ԫ</a>
                                         </div>
                                         <div class="clear"></div>
                                     </div>

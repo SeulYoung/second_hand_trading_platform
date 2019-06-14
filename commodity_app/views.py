@@ -7,8 +7,6 @@ from .models import Commodity, Order, Comment, Favorites
 
 def details(request):
     if request.method == "POST":
-        is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
-        is_seller = Seller.objects.filter(seller_id=request.user).first()
         commodity_id = request.POST.get("commodity_id")
         commodity = Commodity.objects.filter(commodity_id=commodity_id).first()
 
@@ -21,8 +19,7 @@ def details(request):
         similar_commodities = Commodity.objects.filter(type=commodity.type)
         return render(request, "details.html", {"commodity": commodity,
                                                 "comments": comments,
-                                                "similar_commodities": similar_commodities,
-                                                'is_buyer': is_buyer, 'is_seller': is_seller})
+                                                "similar_commodities": similar_commodities})
 
 
 def buy(request):
@@ -48,25 +45,13 @@ def upload_commodity(request):
 
 
 def favorites(request):
-    seller = Seller.objects.filter(seller_id=request.user).first()
     buyer = Buyer.objects.filter(buyer_id=request.user).first()
-    com_id = Favorites.objects.filter(buyer_id=buyer)
-    if com_id:
+    com_id = Favorites.objects.filter(buyer_id=buyer.buyer_id_id).first()
+    com_inf = Commodity.objects.filter(commodity_id=com_id.commodity_id_id)
+    if com_inf:
         is_exit = True
     else:
         is_exit = False
 
     return render(request, 'favorites.html',
-                  {'fav_commodity': com_id, 'judge': is_exit, 'is_buyer': buyer, 'is_seller': seller})
-
-
-def order(request):
-    seller = Seller.objects.filter(seller_id=request.user).first()
-    buyer = Buyer.objects.filter(buyer_id=request.user).first()
-    order_list = Order.objects.filter(buyer_id=buyer)
-    if order_list:
-        judge = True
-    else:
-        judge = False
-    return render(request, 'order.html',
-                  {'order_list': order_list, 'judge': judge, 'is_buyer': buyer, 'is_seller': seller})
+                  {'fav_commodity': com_inf, "judge": is_exit})
