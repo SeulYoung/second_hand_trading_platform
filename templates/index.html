@@ -169,7 +169,7 @@
 
                             <form action="/details/" method="post" id="testForm{{ com.commodity_id }}">
                                 {% csrf_token %}
-                                <input type="hidden" name="commodity_id" value="1">
+                                <input type="hidden" name="commodity_id" value="{{ com.commodity_id }}">
                                 <div onClick="testForm{{ com.commodity_id }}.submit()" class="product-grid fade">
                                     <div class="product-grid-head">
                                         <ul class="grid-social">
