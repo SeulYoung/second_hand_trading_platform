@@ -166,7 +166,6 @@
                         <!---caption-script---->
                         <!---//caption-script---->
                         {% for com in com_list %}
-
                             <form action="/details/" method="post" id="testForm{{ com.commodity_id }}">
                                 {% csrf_token %}
                                 <input type="hidden" name="commodity_id" value="1">
