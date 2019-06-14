@@ -55,47 +55,48 @@
                     <!---caption-script---->
                     <!---//caption-script---->
                     {% for com in my_commodity %}
-                    <form action="/details/" method="post" id="testForm{{ com.commodity_id }}">
-                        {% csrf_token %}
-                        <input type="hidden" name="commodity_id" value="1">
-                        <div onClick="testForm{{ com.commodity_id }}.submit()" class="product-grid fade">
-                            <div class="product-grid-head">
-                                <ul class="grid-social">
-                                    <li><a class="facebook" href="#"><span> </span></a></li>
-                                    <li><a class="twitter" href="#"><span> </span></a></li>
-                                    <li><a class="googlep" href="#"><span> </span></a></li>
-                                    <div class="clear"></div>
-                                </ul>
-                                <div class="block">
-                                    <div class="starbox small ghosting"></div>
-                                    <span> (46)</span>
+                        <form action="/details/" method="post" id="testForm{{ com.commodity_id }}">
+                            {% csrf_token %}
+                            <input type="hidden" name="commodity_id" value="1">
+                            <div onClick="testForm{{ com.commodity_id }}.submit()" class="product-grid fade">
+                                <div class="product-grid-head">
+                                    <ul class="grid-social">
+                                        <li><a class="facebook" href="#"><span> </span></a></li>
+                                        <li><a class="twitter" href="#"><span> </span></a></li>
+                                        <li><a class="googlep" href="#"><span> </span></a></li>
+                                        <div class="clear"></div>
+                                    </ul>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"></div>
+                                        <span> (46)</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-pic">
+                                <div class="product-pic">
                                     <div class="product-block">
-                                        <a href="#"><img src="{{ com.pic.url }}" width="158" height="100" title="product-name"/></a>
-                                    </div>>
-                                <p style="font-size: 1.5em">
-                                    <a href="#">
-                                        {{ com.name }}
-                                    </a>
-                                    <span>{{ com.desc }}</span>
-                                </p>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-info-cust">
-                                    <a href="#">Details</a>
+                                        <a href="#"><img src="{{ com.pic.url }}" width="158" height="100"
+                                                         title="product-name"/></a>
+                                    </div>
+                                    <p style="font-size: 1.5em">
+                                        <a href="#">
+                                            {{ com.name }}
+                                        </a>
+                                        <span>{{ com.desc }}</span>
+                                    </p>
                                 </div>
-                                <div class="product-info-price">
-                                    <a href="details.html">{{ com.price }} 元</a>
+                                <div class="product-info">
+                                    <div class="product-info-cust">
+                                        <a href="#">Details</a>
+                                    </div>
+                                    <div class="product-info-price">
+                                        <a href="details.html">{{ com.price }} 元</a>
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
-                                <div class="clear"></div>
+                                <div class="more-product-info">
+                                    <span> </span>
+                                </div>
                             </div>
-                            <div class="more-product-info">
-                                <span> </span>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
                     {% endfor %}
                     <div class="clear"></div>
                 </div>
@@ -141,49 +142,51 @@
                     <!---//End-rate---->
                     <!---caption-script---->
                     <!---//caption-script---->
-                {% for order in my_order %}
-                    <form action="details/" method="post" id="testForm{{ order.order_id }}">
-                        {% csrf_token %}
-                        <input type="hidden" name="commodity_id" value="1">
-                        <div onClick="testForm{{ order.order_id }}.submit()" class="product-grid fade">
-                            <div class="product-grid-head">
-                                <ul class="grid-social">
-                                    <li><a class="facebook" href="#"><span> </span></a></li>
-                                    <li><a class="twitter" href="#"><span> </span></a></li>
-                                    <li><a class="googlep" href="#"><span> </span></a></li>
-                                    <div class="clear"></div>
-                                </ul>
-                                <div class="block">
-                                    <div class="starbox small ghosting"></div>
-                                    <span> (46)</span>
+                    {% for order in my_order %}
+                        <form action="details/" method="post" id="testForm{{ order.order_id }}">
+                            {% csrf_token %}
+                            <input type="hidden" name="commodity_id" value="1">
+                            <div onClick="testForm{{ order.order_id }}.submit()" class="product-grid fade">
+                                <div class="product-grid-head">
+                                    <ul class="grid-social">
+                                        <li><a class="facebook" href="#"><span> </span></a></li>
+                                        <li><a class="twitter" href="#"><span> </span></a></li>
+                                        <li><a class="googlep" href="#"><span> </span></a></li>
+                                        <div class="clear"></div>
+                                    </ul>
+                                    <div class="block">
+                                        <div class="starbox small ghosting"></div>
+                                        <span> (46)</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-pic">
+                                <div class="product-pic">
                                     <div class="product-block">
-                                        <a href="#"><img src="{{ order.commodity_id.pic.url }}" title="product-name"/></a>
-                                    </div>>
-                                <p style="font-size: 1.5em">
-                                    <a href="#">
-                                        {{ order.commodity_id.name }}
-                                    </a>
-                                    <span>{{ order.status }}</span>
-                                </p>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-info-cust">
-                                    <a href="#">Details</a>
+                                        <a href="#"><img src="{{ order.commodity_id.pic.url }}"
+                                                         title="product-name"/></a>
+                                    </div>
+                                    >
+                                    <p style="font-size: 1.5em">
+                                        <a href="#">
+                                            {{ order.commodity_id.name }}
+                                        </a>
+                                        <span>{{ order.status }}</span>
+                                    </p>
                                 </div>
-                                <div class="product-info-price">
-                                    <a href="details.html">{{ order.commodity_id.price }} 元</a>
+                                <div class="product-info">
+                                    <div class="product-info-cust">
+                                        <a href="#">Details</a>
+                                    </div>
+                                    <div class="product-info-price">
+                                        <a href="details.html">{{ order.commodity_id.price }} 元</a>
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
-                                <div class="clear"></div>
+                                <div class="more-product-info">
+                                    <span> </span>
+                                </div>
                             </div>
-                            <div class="more-product-info">
-                                <span> </span>
-                            </div>
-                        </div>
-                    </form>
-                {% endfor %}
+                        </form>
+                    {% endfor %}
                     <div class="clear"></div>
                 </div>
             </div>
@@ -202,58 +205,60 @@
                 <div class="infoBox" style="height: 100%;">
                     <div class="infoBoxCenter">
                         <form action="/upload/" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div id="editinfo" style="display: none">
-                            <p><label>商品名：</label>
-                                <input name='commodity_name' id='commodity_name' type="text" class="infoLabel" required="required"
-                                       autocomplete="off" placeholder=""/>
+                            {% csrf_token %}
+                            <div id="editinfo" style="display: none">
+                                <p><label>商品名：</label>
+                                    <input name='commodity_name' id='commodity_name' type="text" class="infoLabel"
+                                           required="required"
+                                           autocomplete="off" placeholder=""/>
+                                </p>
+                                <p><label>商品类别：</label>
+                                    <select id="type" name="type" class="infoLabel" required>
+                                        <option value="" disabled selected style="display: none">选择商品的类别</option>
+                                        <option value="手机">手机</option>
+                                        <option value="农用物资">农用物资</option>
+                                        <option value="生鲜水果">生鲜水果</option>
+                                        <option value="园艺植物">园艺植物</option>
+                                        <option value="五金工具">五金工具</option>
+                                        <option value="电子零件">电子零件</option>
+                                        <option value="动漫/周边">动漫/周边</option>
+                                        <option value="宠物用品">宠物用品</option>
+                                        <option value="网络设备">网络设备</option>
+                                        <option value="服饰/配饰">服饰/配饰</option>
+                                        <option value="家装建材">家装建材</option>
+                                        <option value="家纺布艺">家纺布艺</option>
+                                        <option value="珠宝首饰">珠宝首饰</option>
+                                        <option value="游戏">游戏</option>
+                                        <option value="办公用品">办公用品</option>
+                                        <option value="图书">图书</option>
+                                        <option value="运动户外">运动户外</option>
+                                        <option value="票务娱乐">票务娱乐</option>
+                                        <option value="玩具">玩具</option>
+                                        <option value="车辆">车辆</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </p>
+                                <p><label>价格：</label>
+                                    <input name='price' id='price' type="number" class="infoLabel" required="required"
+                                           autocomplete="off" placeholder=""/>
+                                </p>
+                                <p><label>数量：</label>
+                                    <input name="num" id='num' type="number" class="infoLabel"
+                                           required="required" autocomplete="off" placeholder=""/>
+                                </p>
+                                <p><label>描述：</label>
+                                    <input name="desc" id='desc' type="text" class="infoLabel"
+                                           autocomplete="off" placeholder=""/>
+                                </p>
+                                <p><label>上传图片：</label>
+                                    <input name="pic" id='pic' type="file" class="infoLabel" style="display: initial"
+                                           autocomplete="off" accept="image/jpeg, image/png, image.jpg" placeholder=""/>
+                                </p>
+                            </div>
+                            <p class="btn_group">
+                                <input class="btn btn-primary" onclick="upload()" style="margin-right: 10px;"
+                                       type="submit" value="确定">
                             </p>
-                            <p><label>商品类别：</label>
-                                <select id="type" name="type" class="infoLabel" required>
-                                    <option value="" disabled selected style="display: none">选择商品的类别</option>
-                                    <option value="手机">手机</option>
-                                    <option value="农用物资">农用物资</option>
-                                    <option value="生鲜水果">生鲜水果</option>
-                                    <option value="园艺植物">园艺植物</option>
-                                    <option value="五金工具">五金工具</option>
-                                    <option value="电子零件">电子零件</option>
-                                    <option value="动漫/周边">动漫/周边</option>
-                                    <option value="宠物用品">宠物用品</option>
-                                    <option value="网络设备">网络设备</option>
-                                    <option value="服饰/配饰">服饰/配饰</option>
-                                    <option value="家装建材">家装建材</option>
-                                    <option value="家纺布艺">家纺布艺</option>
-                                    <option value="珠宝首饰">珠宝首饰</option>
-                                    <option value="游戏">游戏</option>
-                                    <option value="办公用品">办公用品</option>
-                                    <option value="图书">图书</option>
-                                    <option value="运动户外">运动户外</option>
-                                    <option value="票务娱乐">票务娱乐</option>
-                                    <option value="玩具">玩具</option>
-                                    <option value="车辆">车辆</option>
-                                    <option value="其他">其他</option>
-                                </select>
-                            </p>
-                            <p><label>价格：</label>
-                                <input name='price' id='price' type="number" class="infoLabel" required="required"
-                                       autocomplete="off" placeholder=""/>
-                            </p>
-                            <p><label>数量：</label>
-                                <input name="num" id='num' type="number" class="infoLabel"
-                                       required="required" autocomplete="off" placeholder=""/>
-                            </p>
-                            <p><label>描述：</label>
-                                <input name="desc" id='desc' type="text" class="infoLabel"
-                                       autocomplete="off" placeholder=""/>
-                            </p>
-                             <p><label>上传图片：</label>
-                                <input name="pic" id='pic' type="file" class="infoLabel" style="display: initial"
-                                       autocomplete="off" accept="image/jpeg, image/png, image.jpg" placeholder=""/>
-                             </p>
-                        </div>
-                        <p class="btn_group">
-                            <input class="btn btn-primary" onclick="upload()" style="margin-right: 10px;" type="submit" value="确定">
-                        </p>
                         </form>
                     </div>
                 </div>
