@@ -120,7 +120,7 @@
                                 </ul>
                                 <ul class="prosuct-qty">
                                     <span>数量：</span>
-                                    <select id="num_select">
+                                    <select name="num_select" id="num_select">
                                         <option value="1">1</option>
                                     </select>
                                     <script>
@@ -131,8 +131,14 @@
                                         })
                                     </script>
                                 </ul>
-                                <input type="button" value="加入收藏夹"/>
-                                <input type="button" value="立即购买"/>
+                                <form action="/buy/" method="post">
+                                    <input type="button" value="加入收藏夹"/>
+                                </form>
+                                <form action="/buy/" method="post">
+                                    <input type="hidden" name="commodity_id" value="{{ commodity.commodity_id }}">
+                                    <input type="hidden" name="num" value="{{ commodity.commodity_id }}">
+                                    <input type="button" value="立即购买"/>
+                                </form>
                                 <ul class="product-share">
                                     <h3>分享商品：</h3>
                                     <ul>
