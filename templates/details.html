@@ -143,8 +143,7 @@
                                         <div class="clear"></div>
                                     </ul>
                                 </ul>
-                                <a class="learn-more"
-                                   onclick="chatWithSeller('{{ commodity.seller_id.seller_id.username }}')">
+                                <a class="learn-more" onclick="chatWithSeller('{{ commodity.seller_id.seller_id.username }}')">
                                     <h0>联系卖家？</h0>
                                 </a>
                             </div>
@@ -215,7 +214,7 @@
                     <div class="similar-products">
                         <div class="similar-products-left">
                             <h3>相似商品</h3>
-                            <p>精选相似商品为您推荐</p>
+                            <p>相似商品推荐</p>
                         </div>
                         <div class="similar-products-right">
                             <!-- start content_slider -->
@@ -246,41 +245,156 @@
                             </script>
                             <!---//End-rate---->
                             <div id="owl-demo" class="owl-carousel">
-                                {% for similar_commodity in similar_commodities %}
-                                    <form action="/details/" method="post"
-                                          id="similar_commodity_form{{ similar_commodity.commodity_id }}">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="commodity_id"
-                                               value="{{ similar_commodity.commodity_id }}">
-                                    </form>
-                                    <div class="item"
-                                         onclick="similar_commodity_form{{ similar_commodity.commodity_id }}.submit()">
-                                        <div class="product-grid fade sproduct-grid">
-                                            <div class="product-pic">
-                                                <div class="product-block">
-                                                    <a href="#"><img src="{{ similar_commodity.pic.url }}"
-                                                                     title="product-name"/></a>
-                                                </div>
-                                                <p>
-                                                    <a href="#">{{ similar_commodity.name }}</a>
-                                                    <span>{{ similar_commodity.desc }}</span>
-                                                </p>
+                                <div class="item" onclick="location.href='/details/';">
+                                    <div class="product-grid fade sproduct-grid">
+                                        <div class="product-pic">
+                                            <div class="product-block">
+                                                <a href="#"><img src="/static/images/product1.jpg"
+                                                                 title="product-name"/></a>
                                             </div>
-                                            <div class="product-info">
-                                                <div class="product-info-cust">
-                                                    <a href="#">Details</a>
-                                                </div>
-                                                <div class="product-info-price">
-                                                    <a href="#">{{ similar_commodity.price }}元</a>
-                                                </div>
-                                                <div class="clear"></div>
+                                            <p>
+                                                <a href="#">
+                                                    <small>Nike</small>
+                                                    HYPERVENOM
+                                                    <small>Phantom</small>
+                                                    FG</a>
+                                                <span>Men's Firm-Ground Football Boot</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="product-info-cust">
+                                                <a href="#">Details</a>
                                             </div>
-                                            <div class="more-product-info">
-                                                <span> </span>
+                                            <div class="product-info-price">
+                                                <a href="#">&#163; 200</a>
                                             </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="more-product-info">
+                                            <span> </span>
                                         </div>
                                     </div>
-                                {% endfor %}
+                                </div>
+                                <div class="item" onclick="location.href='details.html';">
+                                    <div class="product-grid fade sproduct-grid">
+                                        <div class="product-pic">
+                                            <div class="product-block">
+                                                <a href="#"><img src="/static/images/product2.jpg"
+                                                                 title="product-name"/></a>
+                                            </div>
+                                            <p>
+                                                <a href="#">
+                                                    <small>Nike</small>
+                                                    HYPERVENOM
+                                                    <small>Phantom</small>
+                                                    FG</a>
+                                                <span>Men's Firm-Ground Football Boot</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="product-info-cust">
+                                                <a href="#">Details</a>
+                                            </div>
+                                            <div class="product-info-price">
+                                                <a href="#">&#163; 320</a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="more-product-info">
+                                            <span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" onclick="location.href='details.html';">
+                                    <div class="product-grid fade sproduct-grid">
+                                        <div class="product-pic">
+                                            <div class="product-block">
+                                                <a href="#"><img src="/static/images/product3.jpg"
+                                                                 title="product-name"/></a>
+                                            </div>
+                                            <p>
+                                                <a href="#">
+                                                    <small>Nike</small>
+                                                    HYPERVENOM
+                                                    <small>Phantom</small>
+                                                    FG</a>
+                                                <span>Men's Firm-Ground Football Boot</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="product-info-cust">
+                                                <a href="#">Details</a>
+                                            </div>
+                                            <div class="product-info-price">
+                                                <a href="#">&#163; 380</a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="more-product-info">
+                                            <span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" onclick="location.href='details.html';">
+                                    <div class="product-grid fade sproduct-grid">
+                                        <div class="product-pic">
+                                            <div class="product-block">
+                                                <a href="#"><img src="/static/images/product4.jpg"
+                                                                 title="product-name"/></a>
+                                            </div>
+                                            <p>
+                                                <a href="#">
+                                                    <small>Nike</small>
+                                                    HYPERVENOM
+                                                    <small>Phantom</small>
+                                                    FG</a>
+                                                <span>Men's Firm-Ground Football Boot</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="product-info-cust">
+                                                <a href="#">Details</a>
+                                            </div>
+                                            <div class="product-info-price">
+                                                <a href="#">&#163; 300</a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="more-product-info">
+                                            <span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" onclick="location.href='details.html';">
+                                    <div class="product-grid fade sproduct-grid">
+                                        <div class="product-pic">
+                                            <div class="product-block">
+                                                <a href="#"><img src="/static/images/product5.jpg"
+                                                                 title="product-name"/></a>
+                                            </div>
+                                            <p>
+                                                <a href="#">
+                                                    <small>Nike</small>
+                                                    HYPERVENOM
+                                                    <small>Phantom</small>
+                                                    FG</a>
+                                                <span>Men's Firm-Ground Football Boot</span>
+                                            </p>
+                                        </div>
+                                        <div class="product-info">
+                                            <div class="product-info-cust">
+                                                <a href="#">Details</a>
+                                            </div>
+                                            <div class="product-info-price">
+                                                <a href="#">&#163; 270</a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="more-product-info">
+                                            <span> </span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!----//End-img-cursual---->
                         </div>

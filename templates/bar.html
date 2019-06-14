@@ -24,7 +24,7 @@
                         });
                     </script>
                     <!---//cart-tonggle-script---->
-                    <li><a class="cart" href="/favorites/"><span id="clickme"> </span></a></li>
+                    <li><a class="cart" href="#"><span id="clickme"> </span></a></li>
                     <!---start-cart-bag---->
                     <div id="cart">Your Cart is Empty <span>(0)</span></div>
                     <!---start-cart-bag---->
@@ -46,7 +46,6 @@
                     {% if is_buyer or is_seller %}
                         {% if is_buyer.isActive == True %}
                             <li><a href="#" id="myname">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
-                            <li><a href="/order" id="myorder">我的订单</a><span> </span></li>
                             <li><a href="/switch">切换为卖家</a></li>
                         {% else %}
                             <li><a href="#" id="myname">{{ is_seller.seller_id.username }}</a><span> </span></li>

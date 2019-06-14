@@ -1,8 +1,5 @@
 let judgeUser = document.getElementById("myname").innerHTML;
-let web = document.getElementById("web").innerHTML;
-let seller = document.getElementById("seller").innerHTML;
-// var SocketString = 'ws://' + window.location.host + '/ws/chat/' + judgeUser + '/';
-var SocketString = 'ws://' + window.location.host + '/ws/chat/' + web + '/';
+var SocketString = 'ws://' + window.location.host + '/ws/chat/' + judgeUser + '/';
 var chatSocket = new WebSocket(SocketString);
 
 chatSocket.onmessage = function (e) {
@@ -47,11 +44,13 @@ document.querySelector('#chat-message-submit').onclick = function (e) {
     let hour = t.getHours();
     let minute = t.getMinutes();
     let sendTime = hour + ((minute < 10) ? ":0" : ":") + minute + " " + ((hour > 12) ? "PM" : "AM");
+    let from_user=judgeUser;
+    let to_user="qqq";
     chatSocket.send(JSON.stringify({
         'websocket_id': SocketString,
         'message': message,
-        'from_user': judgeUser,
-        'to_user': seller,
+        'from_user': from_user,
+        'to_user': to_user,
         'time': sendTime,
     }));
 
@@ -62,6 +61,12 @@ document.querySelector('#chat-message-submit').onclick = function (e) {
 function add_new_message(user, message) {
     let chatBox = document.getElementById("chat_box");
 
+    // let judgeUser;
+    // if (message === 'yyy')
+    //     judgeUser = 'yyy';
+    // else
+    //     judgeUser = 'yxy';
+    // let judgeUser = document.getElementById("myname").innerHTML;
     let new_div = document.createElement("div");
     if (user === judgeUser)
         new_div.setAttribute("class", "chat_record me_record");

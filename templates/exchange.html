@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>information</title>
+</head>
+<style type="text/css">
+    h1{
+        font-size:30px;
+        color:#930;
+        text-align:center;
+    }
+</style>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <h1>个人信息修改</h1>
+
+        <p>
+		   <label> 用户名*：</label>
+		      <input type="text" name="username" id="username" placeholder="请输入您的用户名" required/>
+        </p>
+        <p>
+            <label> 邮箱地址*：</label>
+		     <input type="email" name="email" id="email" placeholder="请输入您的邮箱" required/>
+        </p>
+		<p>
+		  <label> 联系电话：</label>
+		     <input type="text" name="phone" id="phone" placeholder="请输入您的联系电话" required/>
+        </p>
+		<p>
+		   性 别： 
+            <select name="gender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </p>
+	    <p>
+            <label> 银行卡：</label>
+		   <input type="text" name="cardNum" id="cardNum" placeholder="请输入您的银行卡号" required/>
+        </p>
+        <p>
+            <label> 昵称：</label>
+		   <input type="text" name="nickName" id="nickName" placeholder="请输入您的昵称" required/>
+        </p>
+        <p>
+            <label>修改密码*：</label>
+            <input type="password" id="password" name="password" placeholder="请输入密码（不少于6位）" required/>
+        </p>
+        <p>
+            <label>确认密码*：</label>
+            <input type="password" id="repassword" name="repassword" placeholder="请再次输入密码" required/>
+        </p>
+            <input type="submit"value="提交">
+{#          <input type="reset"value="清空">#}
+        </p>
+     </form>
+
+</body>
+</html>
