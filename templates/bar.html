@@ -45,7 +45,7 @@
                 <ul>
                     {% if is_buyer or is_seller %}
                         {% if is_buyer.isActive == True %}
-                            <li><a href="#" id="myname">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
+                            <li><a href="/personalinf" id="myname">{{ is_buyer.buyer_id.username }}</a><span> </span></li>
                             <li><a href="/order" id="myorder">我的订单</a><span> </span></li>
                             <li><a href="/switch">切换为卖家</a></li>
                         {% else %}
