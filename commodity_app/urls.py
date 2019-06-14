@@ -11,4 +11,6 @@ urlpatterns = [
                   path('upload/', views.upload_commodity, name='upload'),
                   path('favorites/', views.favorites, name="favorites"),
                   path('order/', views.order, name="order"),
+                  path('order_content/', views.order_info, name="order_content"),
+                  path('deal_confirm/', views.deal_confirm, name="deal_confirm"),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
