@@ -50,10 +50,10 @@
                         <!---caption-script---->
                         <!---//caption-script---->
                         {% for com in fav_commodity %}
-                            <form action="details/" method="post" id="testForm">
+                            <form action="details/" method="post" id="testForm{{ com.commodity_id.commodity_id }}">
                                 {% csrf_token %}
                                 <input type="hidden" name="commodity_id" value="1">
-                                <div onClick="testForm.submit()" class="product-grid fade">
+                                <div onClick="testForm{{ com.commodity_id.commodity_id }}.submit()" class="product-grid fade">
                                     <div class="product-grid-head">
                                         <ul class="grid-social">
                                             <li><a class="facebook" href="#"><span> </span></a></li>
@@ -67,13 +67,15 @@
                                         </div>
                                     </div>
                                     <div class="product-pic">
-                                        <a href="#"><img src="{{ com.pic.url }}" width="158" height="100"
-                                                         title="product-name"/></a>
+                                        <div class="product-block">
+                                            <a href="#"><img src="{{ com.commodity_id.pic.url }}" width="158" height="100"
+                                                             title="product-name"/></a>
+                                        </div>
                                         <p style="font-size: 1.5em">
                                             <a href="#">
-                                                {{ com.name }}
+                                                {{ com.commodity_id.name }}
                                             </a>
-                                            <span>{{ com.desc }}</span>
+                                            <span>{{ com.commodity_id.desc }}</span>
                                         </p>
                                     </div>
                                     <div class="product-info">
@@ -81,7 +83,7 @@
                                             <a href="#">Details</a>
                                         </div>
                                         <div class="product-info-price">
-                                            <a href="details.html">{{ com.price }} 元</a>
+                                            <a href="details.html">{{ com.commodity_id.price }} 元</a>
                                         </div>
                                         <div class="clear"></div>
                                     </div>

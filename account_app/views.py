@@ -21,14 +21,19 @@ class MyBackend(ModelBackend):
 
 
 def index(request):
+    is_exist = False
+    com_list = Commodity.objects.all()
+    if com_list:
+        is_exist = True
     if request.user.is_authenticated:
         is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
         is_seller = Seller.objects.filter(seller_id=request.user).first()
         if is_seller.isActive:
             return redirect('sellerhome')
         else:
-            return render(request, 'index.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
-    return render(request, 'index.html')
+            return render(request, 'index.html',
+                          {'is_buyer': is_buyer, 'is_seller': is_seller, 'com_list': com_list, 'is_exist': is_exist})
+    return render(request, 'index.html', {'com_list': com_list, 'is_exist': is_exist})
 
 
 @csrf_protect
@@ -107,5 +112,4 @@ def sellerhome(request):
         for ord in order:
             my_order.append(ord)
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller,
-                                               'my_commodity': my_commodity, 'my_order':my_order})
-
+                                               'my_commodity': my_commodity, 'my_order': my_order})

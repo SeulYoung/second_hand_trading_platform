@@ -10,6 +10,7 @@
     <!-- Owl Carousel Assets -->
     <!-- Prettify -->
     <script src="{% static "js/owl.carousel.js" %}"></script>
+    <script src="{% static "js/hi/chatSeller.js" %}"></script>
     <script>
         $(document).ready(function () {
             $("#owl-demo").owlCarousel({
@@ -142,7 +143,7 @@
                                         <div class="clear"></div>
                                     </ul>
                                 </ul>
-                                <a class="learn-more" href="#">
+                                <a class="learn-more" onclick="chatWithSeller()">
                                     <h0>联系卖家？</h0>
                                 </a>
                             </div>
@@ -247,8 +248,10 @@
                                 <div class="item" onclick="location.href='/details/';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
+                                            <div class="product-block">
                                             <a href="#"><img src="/static/images/product1.jpg"
                                                              title="product-name"/></a>
+                                            </div>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -275,8 +278,10 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
-                                            <a href="#"><img src="/static/images/product2.jpg"
+                                            <div class="product-block">
+                                                <a href="#"><img src="/static/images/product2.jpg"
                                                              title="product-name"/></a>
+                                            </div>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -303,8 +308,10 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
+                                            <div class="product-block">
                                             <a href="#"><img src="/static/images/product3.jpg"
                                                              title="product-name"/></a>
+                                            </div>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -331,8 +338,10 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
+                                            <div class="product-block">
                                             <a href="#"><img src="/static/images/product4.jpg"
                                                              title="product-name"/></a>
+                                            </div>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
@@ -359,8 +368,10 @@
                                 <div class="item" onclick="location.href='details.html';">
                                     <div class="product-grid fade sproduct-grid">
                                         <div class="product-pic">
+                                            <div class="product-block">
                                             <a href="#"><img src="/static/images/product5.jpg"
                                                              title="product-name"/></a>
+                                            </div>
                                             <p>
                                                 <a href="#">
                                                     <small>Nike</small>
