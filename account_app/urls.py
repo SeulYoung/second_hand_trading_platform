@@ -8,7 +8,8 @@ urlpatterns = [
     path('switch/', views.switch, name="switch"),
     path('logout/', views.logout, name="logout"),
     path('sellerhome/', views.sellerhome, name="sellerhome"),
-    path('personalinf/',views.personalinf,name="personalinf"),
-    path('exchange/',views.exchange,name="exchange"),
+    path('personalinf/', views.personalinf, name="personalinf"),
+    path('exchange/', views.exchange, name="exchange"),
+    path('password_update/', views.password_update, name="password_update"),
 
 ]

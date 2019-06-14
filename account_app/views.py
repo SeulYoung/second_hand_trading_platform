@@ -113,43 +113,53 @@ def sellerhome(request):
             my_order.append(ord)
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller,
                                                'my_commodity': my_commodity, 'my_order': my_order})
+
+
 @csrf_protect
 def personalinf(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         return redirect('exchange')
-    user = MyUser.objects.filter(username=request.user.username).first()
-    return render(request,'personalinf.html',{"member":user})
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    return render(request, 'personalinf.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
+
 
 @csrf_protect
 def exchange(request):
-    if request.method=='POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        repassword = request.POST.get('repassword')
-        email = request.POST.get('email')
-        gender = request.POST.get('gender')
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    if request.method == 'POST':
         phone = request.POST.get('phone')
+        gender = request.POST.get('gender')
         cardNum = request.POST.get('cardNum')
         nickName = request.POST.get('nickName')
-        email_valid = r'^[0-9a-zA-Z\_\-]+(\.[0-9a-zA-Z\_\-]+)*@[0-9a-zA-Z]+(\.[0-9a-zA-Z]+){1,}$'
+        shopName = request.POST.get('shopname')
+        desc = request.POST.get('desc')
+        MyUser.objects.filter(user_id=request.user.user_id).update(phone=phone, sex=gender)
+        Buyer.objects.filter(buyer_id=request.user).update(cardNum=cardNum, nickName=nickName)
+        Seller.objects.filter(seller_id=request.user).update(shopName=shopName, desc=desc)
+        return HttpResponseRedirect('/personalinf/')
+    return render(request, "exchange.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
 
-        if email:
-            if not re.match(email_valid, email):
-                return render(request, "register.html", {'errorMsg': '无效的邮箱地址'})
+
+def password_update(request):
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        newpassword = request.POST.get('newpassword')
+        repassword = request.POST.get('repassword')
         if len(password) < 6:
-            return render(request, "register.html", {'errorMsg': '密码不能少于6位'})
-        if password != repassword:
-            return render(request, "register.html", {'errorMsg': '两次输入密码不一致'})
-        info = MyUser.objects.filter(username=username).first()
-        if info is not None:
-            return render(request, "register.html", {'errMsg': '该用户名已存在'})
-
-        MyUser.objects.filter(username=request.user.username).update(username=username,email=email,sex=gender,phone=phone)
-        us = MyUser.objects.get(username=username)
-        us.set_password(password)
-        us.save()
-        users = MyUser.objects.filter(username=username).first()
-        Buyer.objects.filter(buyer_id=info).update(buyer_id=users, cardNum=cardNum, nickName=nickName, isActive=True)
-        return HttpResponseRedirect('/login/')
-    return render(request,"exchange.html")
-
+            return render(request, "password_update.html", {'errorMsg': '密码不能少于6位',
+                                                            'is_buyer': is_buyer, 'is_seller': is_seller})
+        if newpassword != repassword:
+            return render(request, "password_update.html", {'errorMsg': '两次输入密码不一致',
+                                                            'is_buyer': is_buyer, 'is_seller': is_seller})
+        if request.user.check_password(password):
+            request.user.set_password(newpassword)
+            request.user.save()
+            return redirect('/login')
+        else:
+            return render(request, "password_update.html", {'errorMsg': '原密码错误',
+                                                            'is_buyer': is_buyer, 'is_seller': is_seller})
+    return render(request, "password_update.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
