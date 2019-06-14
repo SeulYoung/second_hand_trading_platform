@@ -113,3 +113,43 @@ def sellerhome(request):
             my_order.append(ord)
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller,
                                                'my_commodity': my_commodity, 'my_order': my_order})
+@csrf_protect
+def personalinf(request):
+    if request.method=='POST':
+        return redirect('exchange')
+    user = MyUser.objects.filter(username=request.user.username).first()
+    return render(request,'personalinf.html',{"member":user})
+
+@csrf_protect
+def exchange(request):
+    if request.method=='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        repassword = request.POST.get('repassword')
+        email = request.POST.get('email')
+        gender = request.POST.get('gender')
+        phone = request.POST.get('phone')
+        cardNum = request.POST.get('cardNum')
+        nickName = request.POST.get('nickName')
+        email_valid = r'^[0-9a-zA-Z\_\-]+(\.[0-9a-zA-Z\_\-]+)*@[0-9a-zA-Z]+(\.[0-9a-zA-Z]+){1,}$'
+
+        if email:
+            if not re.match(email_valid, email):
+                return render(request, "register.html", {'errorMsg': '无效的邮箱地址'})
+        if len(password) < 6:
+            return render(request, "register.html", {'errorMsg': '密码不能少于6位'})
+        if password != repassword:
+            return render(request, "register.html", {'errorMsg': '两次输入密码不一致'})
+        info = MyUser.objects.filter(username=username).first()
+        if info is not None:
+            return render(request, "register.html", {'errMsg': '该用户名已存在'})
+
+        MyUser.objects.filter(username=request.user.username).update(username=username,email=email,sex=gender,phone=phone)
+        us = MyUser.objects.get(username=username)
+        us.set_password(password)
+        us.save()
+        users = MyUser.objects.filter(username=username).first()
+        Buyer.objects.filter(buyer_id=info).update(buyer_id=users, cardNum=cardNum, nickName=nickName, isActive=True)
+        return HttpResponseRedirect('/login/')
+    return render(request,"exchange.html")
+
