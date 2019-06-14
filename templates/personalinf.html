@@ -12,16 +12,47 @@
     }
 </style>
 <body>
-    <h1>个人信息中心</h1>
-<div class="personal">
-    <p>用户名：{{ member.username }}</p>
-    <p>邮箱：{{ member.email }}</p>
-    <p>电话：{{ member.phone }}</p>
-    <p>性别：{{ member.sex }}</p>
-</div>
-    <form method="post">
-        {% csrf_token %}
-<button type="submit" value="修改"></button>
-    </form>
+    <h1>个人信息修改</h1>
+
+        <p>
+		   <label> 用户名*：</label>
+		      <input type="text" name="username" id="username" placeholder="请输入您的用户名" required/>
+        </p>
+        <p>
+            <label> 邮箱地址*：</label>
+		     <input type="email" name="email" id="email" placeholder="请输入您的邮箱" required/>
+        </p>
+		<p>
+		  <label> 联系电话：</label>
+		     <input type="text" name="phone" id="phone" placeholder="请输入您的联系电话"/>
+        </p>
+		<p>
+		   性 别： 
+            <select name="gender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+        </p>
+	    <p>
+            <label> 银行卡：</label>
+		   <input type="text" name="cardNum" id="cardNum" placeholder="请输入您的银行卡号"/>
+        </p>
+        <p>
+            <label> 昵称：</label>
+		   <input type="text" name="nickName" id="nickName" placeholder="请输入您的昵称"/>
+        </p>
+        <p>
+            <label>修改密码*：</label>
+            <input type="password" id="password" name="password" placeholder="请输入密码（不少于6位）" required/>
+        </p>
+        <p>
+            <label>确认密码*：</label>
+            <input type="password" id="repassword" name="repassword" placeholder="请再次输入密码" required/>
+        </p>
+            <input type="submit"value="提交">
+          <input type="reset"value="清空">
+        </p>
+     </form>
+
 </body>
 </html>

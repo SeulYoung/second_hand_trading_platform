@@ -1,4 +1,5 @@
 from django.db import models
+
 from account_app.models import MyUser, Buyer, Seller
 
 

@@ -57,7 +57,7 @@
                     {% for com in my_commodity %}
                         <form action="/details/" method="post" id="testForm{{ com.commodity_id }}">
                             {% csrf_token %}
-                            <input type="hidden" name="commodity_id" value="1">
+                            <input type="hidden" name="commodity_id" value="{{ com.commodity_id }}">
                             <div onClick="testForm{{ com.commodity_id }}.submit()" class="product-grid fade">
                                 <div class="product-grid-head">
                                     <ul class="grid-social">
@@ -145,7 +145,7 @@
                     {% for order in my_order %}
                         <form action="details/" method="post" id="testForm{{ order.order_id }}">
                             {% csrf_token %}
-                            <input type="hidden" name="commodity_id" value="1">
+                            <input type="hidden" name="order_id" value="{{ order.order_id }}">
                             <div onClick="testForm{{ order.order_id }}.submit()" class="product-grid fade">
                                 <div class="product-grid-head">
                                     <ul class="grid-social">

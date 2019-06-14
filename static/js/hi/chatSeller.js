@@ -3,7 +3,7 @@ function chatWithSeller(seller_name) {
     form.action = "/chatRoom/";
     form.method = "POST";
 
-    let data = {};
+    let data = {'seller_name': seller_name};
 
     for (let key in data) {
         let input = document.createElement("input");
