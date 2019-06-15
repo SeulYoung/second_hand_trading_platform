@@ -113,3 +113,53 @@ def sellerhome(request):
             my_order.append(ord)
     return render(request, "sellerhome.html", {'is_buyer': is_buyer, 'is_seller': is_seller,
                                                'my_commodity': my_commodity, 'my_order': my_order})
+
+
+@csrf_protect
+def personalinf(request):
+    if request.method == 'POST':
+        return redirect('exchange')
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    return render(request, 'personalinf.html', {'is_buyer': is_buyer, 'is_seller': is_seller})
+
+
+@csrf_protect
+def exchange(request):
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    if request.method == 'POST':
+        phone = request.POST.get('phone')
+        gender = request.POST.get('gender')
+        cardNum = request.POST.get('cardNum')
+        nickName = request.POST.get('nickName')
+        shopName = request.POST.get('shopname')
+        desc = request.POST.get('desc')
+        MyUser.objects.filter(user_id=request.user.user_id).update(phone=phone, sex=gender)
+        Buyer.objects.filter(buyer_id=request.user).update(cardNum=cardNum, nickName=nickName)
+        Seller.objects.filter(seller_id=request.user).update(shopName=shopName, desc=desc)
+        return HttpResponseRedirect('/personalinf/')
+    return render(request, "exchange.html", {'is_buyer': is_buyer, 'is_seller': is_seller})
+
+
+def password_update(request):
+    is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    is_seller = Seller.objects.filter(seller_id=request.user).first()
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        newpassword = request.POST.get('newpassword')
+        repassword = request.POST.get('repassword')
+        if len(password) < 6:
+            return render(request, "password_update.html", {'errorMsg': '密码不能少于6位',
+                                                            'is_buyer': is_buyer, 'is_seller': is_seller})
+        if newpassword != repassword:
+            return render(request, "password_update.html", {'errorMsg': '两次输入密码不一致',
+                                                            'is_buyer': is_buyer, 'is_seller': is_seller})
+        if request.user.check_password(password):
+            request.user.set_password(newpassword)
+            request.user.save()
+            return redirect('/login')
+        else:
+            return render(request, "password_update.html", {'errorMsg': '原密码错误',
+                                                            'is_buyer': is_buyer, 'is_seller': is_seller})
+    return render(request, "password_update.html", {'is_buyer': is_buyer, 'is_seller': is_seller})

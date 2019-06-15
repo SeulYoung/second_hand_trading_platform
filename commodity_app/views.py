@@ -113,3 +113,26 @@ def order(request):
         judge = False
     return render(request, 'order.html',
                   {'order_list': order_list, 'judge': judge, 'is_buyer': buyer, 'is_seller': seller})
+
+
+def order_info(request):
+    if request.method == 'POST':
+        order_id = request.POST.get('order_id')
+        order_content = Order.objects.filter(order_id=order_id).first()
+        is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+        is_seller = Seller.objects.filter(seller_id=request.user).first()
+
+        return render(request, 'order_content.html', {'content': order_content, 'is_buyer': is_buyer,
+                                                      'is_seller': is_seller})
+
+
+def deal_confirm(request):
+    if request.method == 'POST':
+        order_id = request.POST.get('order_id')
+        Order.objects.filter(order_id=order_id).update(status='已收货')
+        order_content = Order.objects.filter(order_id=order_id).first()
+        is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
+        is_seller = Seller.objects.filter(seller_id=request.user).first()
+
+        return render(request, 'order_content.html', {'content': order_content, 'is_buyer': is_buyer,
+                                                      'is_seller': is_seller})

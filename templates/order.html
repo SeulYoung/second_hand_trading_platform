@@ -50,10 +50,10 @@
                         <!---caption-script---->
                         <!---//caption-script---->
                         {% for com in order_list %}
-                            <form action="details/" method="post" id="testForm{{ com.commodity_id.commodity_id }}">
+                            <form action="/order_content/" method="post" id="orderForm{{ com.order_id }}">
                                 {% csrf_token %}
-                                <input type="hidden" name="commodity_id" value="{{ com.order_id }}">
-                                <div onClick="testForm{{ com.commodity_id.commodity_id }}.submit()" class="product-grid fade">
+                                <input type="hidden" name="order_id" value="{{ com.order_id }}">
+                                <div onClick="orderForm{{ com.order_id }}.submit()" class="product-grid fade">
                                     <div class="product-grid-head">
                                         <ul class="grid-social">
                                             <li><a class="facebook" href="#"><span> </span></a></li>
