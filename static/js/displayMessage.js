@@ -1,3 +1,6 @@
+let webId = "";
+let to = "";
+
 function dislayMessageNotification() {
     let state = document.getElementById('displayMe').style.display;
     if (state === "none") {
@@ -20,9 +23,14 @@ function dislayMessageNotification() {
                     let contentsNum = contents.length;
                     let trueTimes = time.split("T");
 
+                    webId = websocketId;
+                    to = fromUser;
+
 
                     let new_li = document.createElement("li");
                     new_li.setAttribute("class", "media");
+                    new_li.setAttribute("onclick", "GotoChatRoom()");
+                    new_li.setAttribute("style", "cursor: pointer");
                     let new_div1 = document.createElement("div");
                     new_div1.setAttribute("class", "media-left");
                     let new_div2 = document.createElement("div");
@@ -43,7 +51,7 @@ function dislayMessageNotification() {
                     new_span1.innerHTML = fromUser;
                     let new_span2 = document.createElement("span");
                     new_span2.setAttribute("class", "media-annotation pull-right");
-                    new_span2.innerHTML = trueTimes[0] + " "+ trueTimes[1].substring(0,8);
+                    new_span2.innerHTML = trueTimes[0] + " " + trueTimes[1].substring(0, 8);
                     new_a.appendChild(new_span1);
                     new_a.appendChild(new_span2);
                     let new_span3 = document.createElement("span");
@@ -64,4 +72,26 @@ function dislayMessageNotification() {
     }
     else
         document.getElementById('displayMe').style.display = "none";
+}
+
+
+function GotoChatRoom() {
+    let form = document.createElement("form");
+    form.action = "/chatRoom/";
+    form.method = "POST";
+
+    let data = {'type': "chat_reply", 'webId': webId, 'to_user': to};
+
+    for (let key in data) {
+        let input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = data[key];
+
+        form.appendChild(input);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
 }

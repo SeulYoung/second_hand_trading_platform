@@ -9,13 +9,19 @@ def chat_room(request):
     is_buyer = Buyer.objects.filter(buyer_id=request.user).first()
     is_seller = Seller.objects.filter(seller_id=request.user).first()
     if request.method == 'POST':
-        seller_name = request.POST.get('seller_name')
-        name_sort = [request.POST.get('seller_name'), str(request.user)]
-        name_sort.sort()
-        websocket_id = str(request.user) + '_' + request.POST.get('seller_name')
-        print(seller_name+'******************'+websocket_id)
+        the_type = request.POST.get('type')
+        if the_type == 'chat_seller':
+            to_user = request.POST.get('seller_name')
+            name_sort = [to_user, str(request.user)]
+            name_sort.sort()
+            websocket_id = str(request.user) + '_' + to_user
+        elif the_type == 'chat_reply':
+            to_user = request.POST.get('to_user')
+            websocket_id = request.POST.get('webId')
+        else:
+            return redirect('index')
         return render(request, 'chat_app/chat_room.html',
-                      {'websocket_id': websocket_id, 'room_name': seller_name, 'is_buyer': is_buyer,
+                      {'websocket_id': websocket_id, 'room_name': to_user, 'is_buyer': is_buyer,
                        'is_seller': is_seller})
     else:
         return redirect('index')
