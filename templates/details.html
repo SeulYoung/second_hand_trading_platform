@@ -138,40 +138,49 @@
                                         })
                                     })
                                 </script>
-                                <form method="post" id="favor_form" target="nm_iframe">
-                                    <input type="hidden" name="commodity_id" value="{{ commodity.commodity_id }}">
-                                    <input type="hidden" name="favorite">
-                                    <input type="button" id="favor_btn" onclick="favor_form.submit()" value="加入收藏夹"/>
-                                </form>
-                                <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
-                                <script>
-                                    $(document).ready(function () {
-                                        $("#buy_btn").click(function () {
-                                            var form = $("<form action=\"/buy/\" method=\"post\"></form>");
-                                            var input1 = $("<input type=\"hidden\" name=\"commodity_id\" value=\"{{ commodity.commodity_id }}\">");
-                                            var input2 = $("<input type=\"hidden\" name=\"num\" value=\"" + $("#num_select").val() + "\">");
-                                            form.append(input1);
-                                            form.append(input2);
-                                            form.appendTo("body");
-                                            form.submit();
+                                {% if is_buyer.isActive %}
+                                    <form method="post" id="favor_form" target="nm_iframe">
+                                        <input type="hidden" name="commodity_id" value="{{ commodity.commodity_id }}">
+                                        <input type="hidden" name="favorite">
+                                        <input type="button" id="favor_btn" onclick="favor_form.submit()"
+                                               value="加入收藏夹"/>
+                                    </form>
+                                    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $("#buy_btn").click(function () {
+                                                var form = $("<form action=\"/buy/\" method=\"post\"></form>");
+                                                var input1 = $("<input type=\"hidden\" name=\"commodity_id\" value=\"{{ commodity.commodity_id }}\">");
+                                                var input2 = $("<input type=\"hidden\" name=\"num\" value=\"" + $("#num_select").val() + "\">");
+                                                form.append(input1);
+                                                form.append(input2);
+                                                form.appendTo("body");
+                                                form.submit();
+                                            })
                                         })
-                                    })
-                                </script>
-                                <input type="button" id="buy_btn" value="立即购买"/>
-                                <ul class="product-share">
-                                    <h3>分享商品：</h3>
-                                    <ul>
-                                        <li><a class="share-face" href="#"><span> </span> </a></li>
-                                        <li><a class="share-twitter" href="#"><span> </span> </a></li>
-                                        <li><a class="share-google" href="#"><span> </span> </a></li>
-                                        <li><a class="share-rss" href="#"><span> </span> </a></li>
-                                        <div class="clear"></div>
+                                    </script>
+                                    <input type="button" id="buy_btn" value="立即购买"/>
+                                    <ul class="product-share">
+                                        <h3>分享商品：</h3>
+                                        <ul>
+                                            <li><a class="share-face" href="#"><span> </span> </a></li>
+                                            <li><a class="share-twitter" href="#"><span> </span> </a></li>
+                                            <li><a class="share-google" href="#"><span> </span> </a></li>
+                                            <li><a class="share-rss" href="#"><span> </span> </a></li>
+                                            <div class="clear"></div>
+                                        </ul>
                                     </ul>
-                                </ul>
-                                <a class="learn-more"
-                                   onclick="chatWithSeller('{{ commodity.seller_id.seller_id.username }}')">
-                                    <h0>联系卖家？</h0>
-                                </a>
+                                    <a class="learn-more"
+                                       onclick="chatWithSeller('{{ commodity.seller_id.seller_id.username }}')">
+                                        <h0>联系卖家？</h0>
+                                    </a>
+                                {% else %}
+                                    <form method="post" id="fall_form" action="/fall_commodity/">
+                                        <input type="hidden" name="commodity_id" value="{{ commodity.commodity_id }}">
+                                        <input type="hidden" name="favorite">
+                                        <input type="button" id="fall_btn" onclick="fall_form.submit()" value="下架商品"/>
+                                    </form>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

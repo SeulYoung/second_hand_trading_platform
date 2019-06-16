@@ -136,3 +136,18 @@ def deal_confirm(request):
 
         return render(request, 'order_content.html', {'content': order_content, 'is_buyer': is_buyer,
                                                       'is_seller': is_seller})
+
+
+def fall_commodity(request):
+    if request.method == 'POST':
+        commodity_id = request.POST.get('commodity_id')
+        Commodity.objects.filter(commodity_id=commodity_id).delete()
+
+        return redirect('sellerhome')
+
+
+def clear_favor(request):
+    buyer = Buyer.objects.filter(buyer_id=request.user).first()
+    favors = Favorites.objects.filter(buyer_id=buyer).all().delete()
+
+    return redirect('favorites')

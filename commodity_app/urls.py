@@ -13,4 +13,6 @@ urlpatterns = [
                   path('order/', views.order, name="order"),
                   path('order_content/', views.order_info, name="order_content"),
                   path('deal_confirm/', views.deal_confirm, name="deal_confirm"),
+                  path('fall_commodity/', views.fall_commodity, name="fall_commodity"),
+                  path('clear_favor/', views.clear_favor, name="clear_favor"),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
